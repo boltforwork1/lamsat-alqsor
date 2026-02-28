@@ -1,0 +1,85 @@
+import { Link } from '@tanstack/react-router';
+import { Phone, Mail, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-black border-t border-white/5 pt-20 pb-10 px-6 md:px-12 lg:px-24">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="space-y-6">
+          <Link to="/" className="flex flex-col group">
+            <span className="font-serif text-2xl gold-text tracking-[0.3em] font-bold">LAMSAT AL QOSOOR</span>
+            <span className="text-xs tracking-[0.4em] text-muted-foreground uppercase">لمسة القصور</span>
+          </Link>
+          <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+            Specialized in luxury interior and exterior decoration, delivering passion and craftsmanship to every project.
+          </p>
+          <div className="flex space-x-4">
+            <a href="#" className="hover:text-primary transition-colors duration-300">
+              <Instagram size={20} strokeWidth={1.5} />
+            </a>
+            <a href="#" className="hover:text-primary transition-colors duration-300">
+              <Facebook size={20} strokeWidth={1.5} />
+            </a>
+            <a href="#" className="hover:text-primary transition-colors duration-300">
+              <Twitter size={20} strokeWidth={1.5} />
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 className="font-serif text-sm tracking-widest uppercase mb-8 gold-text">Quick Links</h4>
+          <ul className="space-y-4">
+            {['Home', 'Services', 'Projects', 'About', 'Contact'].map((link) => (
+              <li key={link}>
+                <Link 
+                  to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wider"
+                >
+                  {link}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-serif text-sm tracking-widest uppercase mb-8 gold-text">Services</h4>
+          <ul className="space-y-4">
+            {['Interior Design', 'Exterior Works', 'Luxury Gypsum', 'Facade Works', 'Classic Decor'].map((service) => (
+              <li key={service}>
+                <span className="text-sm text-muted-foreground tracking-wider cursor-default">
+                  {service}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-serif text-sm tracking-widest uppercase mb-8 gold-text">Contact Us</h4>
+          <ul className="space-y-6">
+            <li className="flex items-start space-x-4">
+              <Phone className="text-primary shrink-0" size={18} strokeWidth={1.5} />
+              <span className="text-sm text-muted-foreground tracking-wider">+971 50 123 4567</span>
+            </li>
+            <li className="flex items-start space-x-4">
+              <Mail className="text-primary shrink-0" size={18} strokeWidth={1.5} />
+              <span className="text-sm text-muted-foreground tracking-wider underline underline-offset-4 decoration-primary/30">info@lamsatalqosoor.com</span>
+            </li>
+            <li className="flex items-start space-x-4">
+              <MapPin className="text-primary shrink-0" size={18} strokeWidth={1.5} />
+              <span className="text-sm text-muted-foreground tracking-wider">Luxury Business District, Dubai, UAE</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="container mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-[10px] tracking-[0.3em] uppercase text-muted-foreground/50">
+        <p>© {currentYear} LAMSAT AL QOSOOR LUXURY DECOR. ALL RIGHTS RESERVED.</p>
+        <p>WE CREATE BEAUTY AND LEAVE A LASTING SIGNATURE.</p>
+      </div>
+    </footer>
+  );
+}
