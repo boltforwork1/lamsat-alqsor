@@ -1,1 +1,1 @@
-# lamsat-alqsor
+# lamsat-al-qosoor-luxury-web
