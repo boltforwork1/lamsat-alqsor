@@ -1,9 +1,10 @@
-import { 
-  createRouter, 
-  createRoute, 
-  createRootRoute, 
-  RouterProvider, 
-  Outlet 
+import {
+  createRouter,
+  createRoute,
+  createRootRoute,
+  RouterProvider,
+  Outlet,
+  useLocation
 } from '@tanstack/react-router';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/layout/Navbar';
@@ -15,39 +16,42 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import { useEffect } from 'react';
 
+function RootLayoutComponent() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <Footer />
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: '#000',
+            color: '#C9A24D',
+            border: '1px solid #C9A24D',
+            borderRadius: '0',
+            fontFamily: 'Cinzel, serif',
+            textTransform: 'uppercase',
+            fontSize: '12px',
+            letterSpacing: '0.1em'
+          }
+        }}
+      />
+    </div>
+  );
+}
+
 // Root Route
 const rootRoute = createRootRoute({
-  component: () => {
-    // Scroll to top on route change
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-
-    return (
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Outlet />
-        </main>
-        <Footer />
-        <Toaster 
-          position="bottom-center"
-          toastOptions={{
-            style: {
-              background: '#000',
-              color: '#C9A24D',
-              border: '1px solid #C9A24D',
-              borderRadius: '0',
-              fontFamily: 'Cinzel, serif',
-              textTransform: 'uppercase',
-              fontSize: '12px',
-              letterSpacing: '0.1em'
-            }
-          }}
-        />
-      </div>
-    );
-  },
+  component: RootLayoutComponent,
 });
 
 // Routes

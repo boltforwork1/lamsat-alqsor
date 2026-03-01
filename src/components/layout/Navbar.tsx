@@ -22,10 +22,15 @@ export default function Navbar() {
     { name: 'Contact', path: '/contact' },
   ];
 
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'glass-morphism py-4' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link to="/" className="flex items-center group">
+        <Link to="/" onClick={handleNavClick} className="flex items-center group">
           <div className="h-12 md:h-14 w-auto overflow-hidden flex items-center">
             <img
               src="/logo.png"
@@ -41,19 +46,20 @@ export default function Navbar() {
             <Link
               key={link.name}
               to={link.path}
+              onClick={handleNavClick}
               activeProps={{ className: "text-primary border-b border-primary/50" }}
               className="font-serif text-xs tracking-widest uppercase hover:text-primary transition-colors duration-300 pb-1"
             >
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" className="btn-gold !py-2 !px-6 !text-[10px]">
+          <Link to="/contact" onClick={handleNavClick} className="btn-gold !py-2 !px-6 !text-[10px]">
             Inquire Now
           </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="md:hidden text-white hover:text-primary transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -67,15 +73,15 @@ export default function Navbar() {
           <Link
             key={link.name}
             to={link.path}
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleNavClick}
             className="font-serif text-2xl tracking-[0.2em] uppercase hover:text-primary transition-colors"
           >
             {link.name}
           </Link>
         ))}
-        <Link 
-          to="/contact" 
-          onClick={() => setIsMobileMenuOpen(false)}
+        <Link
+          to="/contact"
+          onClick={handleNavClick}
           className="btn-gold"
         >
           Inquire Now

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
 export default function Contact() {
@@ -78,17 +78,6 @@ export default function Contact() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="space-y-6 pt-10">
-              <h3 className="text-sm gold-text uppercase tracking-[0.4em] font-serif">Follow Our Signature</h3>
-              <div className="flex space-x-6">
-                {[Instagram, Facebook, Twitter].map((Icon, idx) => (
-                  <a key={idx} href="#" className="p-3 border border-white/10 text-white/50 hover:text-primary hover:border-primary transition-all duration-300">
-                    <Icon size={20} strokeWidth={1.5} />
-                  </a>
-                ))}
-              </div>
             </div>
           </motion.div>
 

@@ -1,14 +1,18 @@
 import { Link } from '@tanstack/react-router';
-import { Phone, Mail, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <footer className="bg-black border-t border-white/5 pt-20 pb-10 px-6 md:px-12 lg:px-24">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="space-y-6">
-          <Link to="/" className="flex items-start group">
+          <Link to="/" onClick={handleLinkClick} className="flex items-start group">
             <div className="h-12 md:h-14 w-auto overflow-hidden flex items-center">
               <img
                 src="/logo.png"
@@ -20,17 +24,6 @@ export default function Footer() {
           <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
             Specialized in luxury interior and exterior decoration, delivering passion and craftsmanship to every project.
           </p>
-          <div className="flex space-x-4">
-            <a href="#" className="hover:text-primary transition-colors duration-300">
-              <Instagram size={20} strokeWidth={1.5} />
-            </a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">
-              <Facebook size={20} strokeWidth={1.5} />
-            </a>
-            <a href="#" className="hover:text-primary transition-colors duration-300">
-              <Twitter size={20} strokeWidth={1.5} />
-            </a>
-          </div>
         </div>
 
         <div>
@@ -38,8 +31,9 @@ export default function Footer() {
           <ul className="space-y-4">
             {['Home', 'Services', 'Projects', 'About', 'Contact'].map((link) => (
               <li key={link}>
-                <Link 
+                <Link
                   to={link === 'Home' ? '/' : `/${link.toLowerCase()}`}
+                  onClick={handleLinkClick}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wider"
                 >
                   {link}
@@ -55,6 +49,7 @@ export default function Footer() {
             <li>
               <Link
                 to="/services#interior-works"
+                onClick={handleLinkClick}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wider"
               >
                 Interior Works
@@ -63,6 +58,7 @@ export default function Footer() {
             <li>
               <Link
                 to="/services#exterior-facade-works"
+                onClick={handleLinkClick}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wider"
               >
                 Exterior & Facade Works
