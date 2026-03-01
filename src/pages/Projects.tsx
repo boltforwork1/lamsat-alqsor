@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const PROJECT_IMAGES = [
   { id: 1, category: 'Interior', title: 'Royal Dining Project', image: "/images/projects/project-1.png" },
   { id: 2, category: 'Interior', title: 'Royal Salon Project', image: "/images/projects/project-2.png" },
-  { id: 3, category: 'Exterior', title: 'Neoclassical Facade', image: "/images/projects/project-3.png" },
+  { id: 3, category: 'Exterior', title: 'Luxury Wall Project', image: "/images/projects/project-3.png" },
   { id: 4, category: 'Interior', title: 'Classic Bedroom', image: "/images/projects/project-4.png" },
   { id: 5, category: 'Interior', title: 'Victorian Living Room', image: "/images/projects/project-5.png" },
   { id: 6, category: 'Exterior', title: 'Grand Villa Entrance', image: "/images/projects/project-6.png" },
