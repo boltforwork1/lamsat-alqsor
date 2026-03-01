@@ -76,7 +76,7 @@ export default function Footer() {
             </li>
             <li className="flex items-start space-x-4">
               <Mail className="text-primary shrink-0" size={18} strokeWidth={1.5} />
-              <span className="text-sm text-muted-foreground tracking-wider underline underline-offset-4 decoration-primary/30">info@lamsatalqosoor.com</span>
+              <span className="text-sm text-muted-foreground tracking-wider underline underline-offset-4 decoration-primary/30">info@lamsat-alqsoor.com</span>
             </li>
             <li className="flex items-start space-x-4">
               <MapPin className="text-primary shrink-0" size={18} strokeWidth={1.5} />
