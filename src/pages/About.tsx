@@ -34,8 +34,8 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <a
-            href="/profile.pdf"
-            download="profile.pdf"
+            href="https://drive.google.com/file/d/1D2F53z6t49v69A0roeeZnZKkG43UVqAf/view?usp=sharing"
+            download="https://drive.google.com/file/d/1D2F53z6t49v69A0roeeZnZKkG43UVqAf/view?usp=sharing"
             className="btn-gold inline-block"
           >
             Download Our Profile
