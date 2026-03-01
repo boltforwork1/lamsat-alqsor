@@ -29,7 +29,7 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="Lamsat Al Qosoor Logo"
-            className="h-20 md:h-35 w-auto group-hover:scale-115 transition-transform duration-600"
+            className="h-14 md:h-16 w-auto group-hover:scale-105 transition-transform duration-500"
           />
         </Link>
 
