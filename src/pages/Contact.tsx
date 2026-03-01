@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Instagram } from 'lucide-react';
 import { generateWhatsAppInquiryLink, getPhoneLink, getEmailLink, getLocationLink } from '../utils/whatsapp';
 import { CONTACT_INFO } from '../constants/contact';
 
@@ -34,7 +34,8 @@ export default function Contact() {
   const contactInfo = [
     { icon: <Phone size={24} />, label: 'Phone', value: CONTACT_INFO.phone.display, href: getPhoneLink(), type: 'phone' },
     { icon: <Mail size={24} />, label: 'Email', value: CONTACT_INFO.email, href: getEmailLink(), type: 'email' },
-    { icon: <MapPin size={24} />, label: 'Location', value: CONTACT_INFO.location.display, href: getLocationLink(), type: 'location' }
+    { icon: <MapPin size={24} />, label: 'Location', value: CONTACT_INFO.location.display, href: getLocationLink(), type: 'location' },
+    { icon: <Instagram size={24} />, label: 'Instagram', value: '@lamsatalqsoor', href: 'https://www.instagram.com/lamsatalqsoor?igsh=NnRuaTh5aWFsYnp6', type: 'instagram' }
   ];
 
   return (
