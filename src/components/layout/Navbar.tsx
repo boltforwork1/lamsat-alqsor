@@ -1,10 +1,11 @@
 import { Link } from '@tanstack/react-router';
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(true);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,17 +14,6 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMobileMenuOpen]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -34,7 +24,7 @@ export default function Navbar() {
   ];
 
   const handleNavClick = () => {
-    setIsMobileMenuOpen(false);
+    setIsOpen(false);
     window.scrollTo(0, 0);
   };
 
@@ -69,46 +59,37 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-white hover:text-primary transition-colors z-50 relative"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
+        {/* Mobile Menu */}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger className="md:hidden text-white hover:text-primary transition-colors z-50 relative" aria-label="Toggle menu">
+            <Menu size={32} />
+          </SheetTrigger>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div
-          className="md:hidden fixed inset-0 bg-black/40 z-40 top-0"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
+          <SheetContent side="right" className="w-4/5 bg-gradient-to-b from-background via-background to-black/80 border-l border-primary/20 p-0 flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center space-y-8 w-full px-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={handleNavClick}
+                  className="font-serif text-3xl tracking-widest uppercase text-white hover:text-primary transition-colors duration-300"
+                >
+                  {link.name}
+                </Link>
+              ))}
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden fixed inset-0 pt-24 z-40 flex flex-col items-center justify-start overflow-y-auto transition-all duration-500 pointer-events-none ${isMobileMenuOpen ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible'}`}>
-        <div className="glass-morphism w-full h-full flex flex-col items-center justify-start pt-12 pb-12 px-6 space-y-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={handleNavClick}
-              className="font-serif text-xl md:text-2xl tracking-[0.2em] uppercase hover:text-primary transition-colors w-full text-center py-4"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <div className="h-px w-16 bg-primary/30 my-4" />
-          <Link
-            to="/contact"
-            onClick={handleNavClick}
-            className="btn-gold w-40 text-center"
-          >
-            Inquire Now
-          </Link>
-        </div>
+              <div className="h-px w-24 bg-primary/30" />
+
+              <Link
+                to="/contact"
+                onClick={handleNavClick}
+                className="btn-gold !py-3 !px-8 !text-xs"
+              >
+                Inquire Now
+              </Link>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );
