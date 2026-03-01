@@ -34,19 +34,19 @@ export default function Home() {
 
       {/* About Section */}
       <section className="section-padding bg-zinc-950 border-y border-white/5">
-        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6 md:space-y-8"
           >
             <div className="space-y-2">
               <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">Who We Are</span>
-              <h2 className="text-4xl md:text-5xl gold-text">A Passion For Perfection</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">A Passion For Perfection</h2>
             </div>
-            <p className="text-muted-foreground leading-relaxed text-lg tracking-wider">
+            <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg tracking-wider">
               In every project we deliver, we place a part of our passion into it. Specialized in luxury interior and exterior decoration, we are a leading name in palace-inspired design across the region.
             </p>
             <Link to="/about" className="btn-gold-outline inline-block">
@@ -61,11 +61,11 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute -inset-4 border border-primary/20" />
+            <div className="absolute -inset-2 md:-inset-4 border border-primary/20" />
             <img
               src={IMAGES.project1}
               alt="Luxury Project"
-              className="w-full h-[600px] object-cover hover-lift transition-all duration-700"
+              className="w-full h-64 md:h-96 lg:h-[600px] object-cover hover-lift transition-all duration-700"
             />
           </motion.div>
         </div>
@@ -73,14 +73,14 @@ export default function Home() {
 
       {/* Services Preview */}
       <section className="section-padding bg-black">
-        <div className="container mx-auto text-center space-y-20">
+        <div className="container mx-auto text-center space-y-12 md:space-y-20">
           <div className="space-y-4 max-w-2xl mx-auto">
-            <h2 className="text-4xl md:text-5xl gold-text">Our Specialities</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">Our Specialities</h2>
             <div className="h-px w-24 bg-primary mx-auto" />
-            <p className="text-muted-foreground tracking-widest text-sm uppercase">Palace-inspired execution in every detail</p>
+            <p className="text-muted-foreground tracking-widest text-xs md:text-sm uppercase">Palace-inspired execution in every detail</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {services.map((service, idx) => (
               <motion.div
                 key={service.title}
@@ -88,13 +88,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.2 }}
                 viewport={{ once: true }}
-                className="luxury-card p-10 group space-y-8"
+                className="luxury-card p-6 md:p-10 group space-y-6 md:space-y-8"
               >
                 <div className="inline-block p-4 border border-primary/20 group-hover:border-primary transition-colors duration-500">
                   {service.icon}
                 </div>
-                <h3 className="text-xl gold-text tracking-widest uppercase">{service.title}</h3>
-                <p className="text-muted-foreground tracking-wider text-sm">{service.description}</p>
+                <h3 className="text-lg md:text-xl gold-text tracking-widest uppercase">{service.title}</h3>
+                <p className="text-muted-foreground tracking-wider text-xs md:text-sm">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -107,11 +107,11 @@ export default function Home() {
 
       {/* Featured Projects Grid */}
       <section className="section-padding bg-zinc-950">
-        <div className="container mx-auto space-y-20">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+        <div className="container mx-auto space-y-12 md:space-y-20">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8">
             <div className="space-y-4">
               <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">Portfolio</span>
-              <h2 className="text-4xl md:text-5xl gold-text">Iconic Works</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">Iconic Works</h2>
             </div>
             <Link to="/projects" className="text-primary hover:text-white transition-colors flex items-center space-x-2 tracking-widest text-xs uppercase font-serif pb-2">
               <span>View Full Gallery</span>
@@ -119,7 +119,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
             {[IMAGES.project1, IMAGES.project2].map((img, idx) => (
               <motion.div
                 key={idx}
@@ -127,17 +127,17 @@ export default function Home() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="relative overflow-hidden group h-[500px]"
+                className="relative overflow-hidden group h-64 md:h-80 lg:h-[500px]"
               >
-                <img 
-                  src={img} 
-                  alt={`Project ${idx + 1}`} 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                <img
+                  src={img}
+                  alt={`Project ${idx + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-8">
-                  <div className="border border-primary/30 w-full h-full flex flex-col items-center justify-center space-y-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-2xl gold-text uppercase tracking-widest">Royal Palace Project</h3>
-                    <p className="text-xs text-white/70 uppercase tracking-[0.3em]">LUXURY CLASSICAL ARCHITECTURAL WORKS</p>
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6 md:p-8">
+                  <div className="border border-primary/30 w-full h-full flex flex-col items-center justify-center space-y-3 md:space-y-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <h3 className="text-lg md:text-2xl gold-text uppercase tracking-widest">Royal Palace Project</h3>
+                    <p className="text-[10px] md:text-xs text-white/70 uppercase tracking-[0.3em]">LUXURY CLASSICAL ARCHITECTURAL WORKS</p>
                     <div className="w-12 h-px bg-primary" />
                   </div>
                 </div>
@@ -150,19 +150,19 @@ export default function Home() {
       {/* CTA Section */}
       <section className="section-padding relative overflow-hidden bg-black text-center">
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[150px] rounded-full" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-primary/20 blur-[100px] md:blur-[150px] rounded-full" />
         </div>
-        
-        <div className="container relative z-10 mx-auto max-w-4xl space-y-12">
+
+        <div className="container relative z-10 mx-auto max-w-4xl space-y-8 md:space-y-12">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-5xl md:text-7xl gold-text tracking-[0.1em]">Let’s Create Your Palace</h2>
-            <p className="text-lg md:text-xl text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif">
+            <h2 className="text-3xl md:text-5xl lg:text-7xl gold-text tracking-[0.1em]">Let's Create Your Palace</h2>
+            <p className="text-sm md:text-lg lg:text-xl text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif leading-relaxed">
               Transforming grand visions into breathtaking realities.
             </p>
           </motion.div>

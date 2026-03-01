@@ -105,7 +105,7 @@ export default function HeroSlider() {
       </AnimatePresence>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-        <div className="container relative mx-auto px-6 text-center space-y-6">
+        <div className="container relative mx-auto px-4 md:px-6 text-center space-y-4 md:space-y-6">
           <AnimatePresence mode="wait">
             {slides.map((slide, index) => (
               currentSlide === index && (
@@ -115,14 +115,14 @@ export default function HeroSlider() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="space-y-4"
+                  className="space-y-3 md:space-y-4"
                 >
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif gold-text tracking-[0.3em] font-bold leading-tight">
+                  <h1 className="text-2xl md:text-4xl lg:text-6xl font-serif gold-text tracking-[0.2em] md:tracking-[0.3em] font-bold leading-tight">
                     {slide.headline.split('\n').map((line, idx) => (
                       <div key={idx}>{line}</div>
                     ))}
                   </h1>
-                  <p className="text-base md:text-lg text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif leading-relaxed">
+                  <p className="text-xs md:text-base lg:text-lg text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif leading-relaxed">
                     {slide.description}
                   </p>
                 </motion.div>
@@ -160,21 +160,21 @@ export default function HeroSlider() {
 
       <button
         onClick={previousSlide}
-        className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 z-20 text-white hover:text-primary transition-colors duration-300 p-2"
+        className="absolute left-3 md:left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20 text-white hover:text-primary transition-colors duration-300 p-1 md:p-2"
         aria-label="Previous slide"
       >
-        <ChevronLeft size={32} strokeWidth={1.5} />
+        <ChevronLeft size={24} className="md:w-8 md:h-8" strokeWidth={1.5} />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-20 text-white hover:text-primary transition-colors duration-300 p-2"
+        className="absolute right-3 md:right-6 lg:right-12 top-1/2 -translate-y-1/2 z-20 text-white hover:text-primary transition-colors duration-300 p-1 md:p-2"
         aria-label="Next slide"
       >
-        <ChevronRight size={32} strokeWidth={1.5} />
+        <ChevronRight size={24} className="md:w-8 md:h-8" strokeWidth={1.5} />
       </button>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-2 md:space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}

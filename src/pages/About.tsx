@@ -16,7 +16,7 @@ export default function About() {
 
   return (
     <div className="bg-black pt-32 min-h-screen">
-      <header className="section-padding text-center space-y-6">
+      <header className="section-padding text-center space-y-4 md:space-y-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -24,8 +24,8 @@ export default function About() {
           className="space-y-4"
         >
           <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">A Legacy Of Luxury</span>
-          <h1 className="text-5xl md:text-7xl gold-text">About Us</h1>
-          <div className="h-px w-32 bg-primary mx-auto mt-8" />
+          <h1 className="text-3xl md:text-5xl lg:text-7xl gold-text">About Us</h1>
+          <div className="h-px w-32 bg-primary mx-auto mt-6 md:mt-8" />
         </motion.div>
 
         <motion.div
@@ -44,30 +44,30 @@ export default function About() {
       </header>
 
       {/* Main About Section */}
-      <section className="section-padding container mx-auto px-6 md:px-12 lg:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <section className="section-padding container mx-auto px-4 md:px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-6 md:space-y-10"
           >
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl gold-text tracking-widest uppercase">The Essence of Lamsat Al Qosoor</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl gold-text tracking-widest uppercase">The Essence of Lamsat Al Qosoor</h2>
               <div className="h-px w-16 bg-primary" />
             </div>
-            <p className="text-muted-foreground text-lg leading-relaxed tracking-wider">
+            <p className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed tracking-wider">
               We are a specialized interior and exterior decoration company with experience across more than 280 projects. Our journey began with a simple vision: to bring the grandeur of palaces into modern living spaces.
             </p>
-            <p className="text-muted-foreground text-lg leading-relaxed tracking-wider">
+            <p className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed tracking-wider">
               True luxury lies in the details. From the first sketch to the final gold-leaf application, our team of expert designers and craftsmen work in harmony to deliver spaces that are not just beautiful, but soulful.
             </p>
-            <div className="flex items-center space-x-6">
-              <div className="p-4 border border-primary/20 rounded-full">
-                <Heart className="text-primary" size={24} strokeWidth={1.5} />
+            <div className="flex items-center space-x-4 md:space-x-6">
+              <div className="p-4 border border-primary/20 rounded-full shrink-0">
+                <Heart className="text-primary" size={20} md="24" strokeWidth={1.5} />
               </div>
-              <p className="text-sm tracking-[0.2em] text-white uppercase font-serif italic">Created with passion, built for eternity.</p>
+              <p className="text-xs md:text-sm tracking-[0.2em] text-white uppercase font-serif italic">Created with passion, built for eternity.</p>
             </div>
           </motion.div>
 
@@ -76,7 +76,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="relative h-[600px]"
+            className="relative h-64 md:h-96 lg:h-[600px]"
           >
             <div className="absolute inset-0 border border-primary/20 z-0" />
             <img
@@ -89,8 +89,8 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-zinc-950 py-32 border-y border-white/5">
-        <div className="container mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+      <section className="bg-zinc-950 py-16 md:py-32 border-y border-white/5">
+        <div className="container mx-auto px-4 md:px-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12 text-center">
           {stats.map((stat, idx) => (
             <motion.div
               key={stat.label}
@@ -98,31 +98,31 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="space-y-4"
+              className="space-y-2 md:space-y-4"
             >
-              <div className="text-primary flex justify-center">{stat.icon}</div>
-              <h3 className="text-4xl font-serif gold-text">{stat.value}</h3>
-              <p className="text-muted-foreground text-[10px] tracking-[0.3em] uppercase">{stat.label}</p>
+              <div className="text-primary flex justify-center text-sm md:text-base">{stat.icon}</div>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif gold-text">{stat.value}</h3>
+              <p className="text-muted-foreground text-[8px] md:text-[10px] tracking-[0.3em] uppercase">{stat.label}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* Vision & Mission */}
-      <section className="section-padding container mx-auto px-6 md:px-12 lg:px-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+      <section className="section-padding container mx-auto px-4 md:px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="p-12 border border-white/5 bg-zinc-900/50 space-y-8 group hover:border-primary/20 transition-all duration-500"
+            className="p-6 md:p-12 border border-white/5 bg-zinc-900/50 space-y-6 md:space-y-8 group hover:border-primary/20 transition-all duration-500"
           >
             <div className="space-y-4">
-              <h2 className="text-3xl gold-text uppercase tracking-widest">Our Vision</h2>
+              <h2 className="text-2xl md:text-3xl gold-text uppercase tracking-widest">Our Vision</h2>
               <div className="h-px w-12 bg-primary group-hover:w-24 transition-all duration-500" />
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed tracking-widest italic font-serif">
+            <p className="text-muted-foreground text-xs md:text-sm leading-relaxed tracking-widest italic font-serif">
               "To become the leading name in luxury décor execution worldwide, setting new benchmarks for craftsmanship, elegance, and timeless design."
             </p>
           </motion.div>
@@ -132,13 +132,13 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="p-12 border border-white/5 bg-zinc-900/50 space-y-8 group hover:border-primary/20 transition-all duration-500"
+            className="p-6 md:p-12 border border-white/5 bg-zinc-900/50 space-y-6 md:space-y-8 group hover:border-primary/20 transition-all duration-500"
           >
             <div className="space-y-4">
-              <h2 className="text-3xl gold-text uppercase tracking-widest">Our Mission</h2>
+              <h2 className="text-2xl md:text-3xl gold-text uppercase tracking-widest">Our Mission</h2>
               <div className="h-px w-12 bg-primary group-hover:w-24 transition-all duration-500" />
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed tracking-widest italic font-serif">
+            <p className="text-muted-foreground text-xs md:text-sm leading-relaxed tracking-widest italic font-serif">
               "To transform architectural spaces into living masterpieces through unparalleled dedication to detail, quality, and the classical pursuit of beauty."
             </p>
           </motion.div>
@@ -147,9 +147,9 @@ export default function About() {
       
       {/* Why Choose Us */}
       <section className="section-padding bg-black border-t border-white/5">
-        <div className="container mx-auto px-6 text-center space-y-20">
-          <h2 className="text-4xl gold-text tracking-widest">Why Clients Choose Us</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="container mx-auto px-4 md:px-6 text-center space-y-12 md:space-y-20">
+          <h2 className="text-3xl md:text-4xl gold-text tracking-widest">Why Clients Choose Us</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {[
               { title: "Precision Craftsmanship", text: "Every detail is executed with mathematical precision and artistic flair." },
               { title: "Luxury Standards", text: "We use only the finest materials and centuries-old techniques refined for today." },
@@ -163,8 +163,8 @@ export default function About() {
                 viewport={{ once: true }}
                 className="space-y-4"
               >
-                <h3 className="text-lg gold-text uppercase tracking-widest font-serif">{item.title}</h3>
-                <p className="text-muted-foreground text-sm tracking-widest">{item.text}</p>
+                <h3 className="text-base md:text-lg gold-text uppercase tracking-widest font-serif">{item.title}</h3>
+                <p className="text-muted-foreground text-xs md:text-sm tracking-widest">{item.text}</p>
               </motion.div>
             ))}
           </div>

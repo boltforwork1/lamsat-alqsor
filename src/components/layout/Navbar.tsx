@@ -14,6 +14,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
@@ -60,32 +71,44 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-white hover:text-primary transition-colors"
+          className="md:hidden text-white hover:text-primary transition-colors z-50 relative"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden fixed inset-0 bg-black/40 z-40 top-0"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile Menu */}
-      <div className={`md:hidden fixed inset-0 glass-morphism z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-        {navLinks.map((link) => (
+      <div className={`md:hidden fixed inset-0 pt-24 z-40 flex flex-col items-center justify-start overflow-y-auto transition-all duration-500 pointer-events-none ${isMobileMenuOpen ? 'opacity-100 visible pointer-events-auto' : 'opacity-0 invisible'}`}>
+        <div className="glass-morphism w-full h-full flex flex-col items-center justify-start pt-12 pb-12 px-6 space-y-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={handleNavClick}
+              className="font-serif text-xl md:text-2xl tracking-[0.2em] uppercase hover:text-primary transition-colors w-full text-center py-4"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <div className="h-px w-16 bg-primary/30 my-4" />
           <Link
-            key={link.name}
-            to={link.path}
+            to="/contact"
             onClick={handleNavClick}
-            className="font-serif text-2xl tracking-[0.2em] uppercase hover:text-primary transition-colors"
+            className="btn-gold w-40 text-center"
           >
-            {link.name}
+            Inquire Now
           </Link>
-        ))}
-        <Link
-          to="/contact"
-          onClick={handleNavClick}
-          className="btn-gold"
-        >
-          Inquire Now
-        </Link>
+        </div>
       </div>
     </nav>
   );

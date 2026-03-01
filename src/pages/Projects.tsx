@@ -20,7 +20,7 @@ export default function Projects() {
 
   return (
     <div className="bg-black pt-32 min-h-screen">
-      <header className="section-padding text-center space-y-6">
+      <header className="section-padding text-center space-y-4 md:space-y-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,25 +28,25 @@ export default function Projects() {
           className="space-y-4"
         >
           <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">A Legacy Of Grandeur</span>
-          <h1 className="text-5xl md:text-7xl gold-text">Our Projects</h1>
-          <div className="h-px w-32 bg-primary mx-auto mt-8" />
-          <p className="text-muted-foreground tracking-widest max-w-2xl mx-auto uppercase text-[10px] md:text-xs">Excellence across more than 280 luxury projects</p>
+          <h1 className="text-3xl md:text-5xl lg:text-7xl gold-text">Our Projects</h1>
+          <div className="h-px w-32 bg-primary mx-auto mt-6 md:mt-8" />
+          <p className="text-muted-foreground tracking-widest max-w-2xl mx-auto uppercase text-[9px] md:text-xs">Excellence across more than 280 luxury projects</p>
         </motion.div>
       </header>
 
       {/* Filter Buttons */}
-      <section className="container mx-auto px-6 mb-16">
-        <div className="flex flex-wrap justify-center gap-4 md:gap-12 border-b border-white/5 pb-8">
+      <section className="container mx-auto px-4 md:px-6 mb-10 md:mb-16">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-12 border-b border-white/5 pb-6 md:pb-8">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`font-serif text-xs md:text-sm tracking-[0.3em] uppercase transition-all duration-300 relative pb-2 ${filter === cat ? 'text-primary' : 'text-muted-foreground hover:text-white'}`}
+              className={`font-serif text-xs tracking-[0.3em] uppercase transition-all duration-300 relative pb-2 ${filter === cat ? 'text-primary' : 'text-muted-foreground hover:text-white'}`}
             >
               {cat}
               {filter === cat && (
-                <motion.div 
-                  layoutId="activeFilter" 
+                <motion.div
+                  layoutId="activeFilter"
                   className="absolute bottom-0 left-0 right-0 h-px bg-primary"
                 />
               )}
@@ -56,8 +56,8 @@ export default function Projects() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="container mx-auto px-6 md:px-12 lg:px-24 pb-32">
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="container mx-auto px-4 md:px-6 lg:px-12 pb-20 md:pb-32">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
@@ -67,17 +67,17 @@ export default function Projects() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5 }}
-                className="group relative h-[450px] overflow-hidden bg-zinc-900 border border-white/5"
+                className="group relative h-48 md:h-64 lg:h-[450px] overflow-hidden bg-zinc-900 border border-white/5"
               >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 border border-primary/0 group-hover:border-primary/20 m-4">
-                  <div className="text-center space-y-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="text-primary text-[10px] tracking-[0.4em] uppercase font-serif">{project.category}</span>
-                    <h3 className="text-xl gold-text uppercase tracking-widest font-bold">{project.title}</h3>
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-4 md:p-8 border border-primary/0 group-hover:border-primary/20 m-2 md:m-4">
+                  <div className="text-center space-y-2 md:space-y-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <span className="text-primary text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-serif">{project.category}</span>
+                    <h3 className="text-base md:text-xl gold-text uppercase tracking-widest font-bold">{project.title}</h3>
                     <div className="h-px w-12 bg-primary mx-auto" />
                   </div>
                 </div>
@@ -88,11 +88,11 @@ export default function Projects() {
       </section>
       
       {/* Portfolio Quote Section */}
-      <section className="bg-zinc-950 py-32 border-t border-white/5">
-        <div className="container mx-auto px-6 text-center max-w-4xl space-y-12">
+      <section className="bg-zinc-950 py-16 md:py-32 border-t border-white/5">
+        <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl space-y-12">
           <div className="inline-block p-4 border-y border-primary/30">
-            <p className="text-2xl md:text-3xl italic font-serif text-muted-foreground tracking-widest leading-relaxed">
-              "We don’t just build spaces, we create legacies that endure through time."
+            <p className="text-lg md:text-2xl lg:text-3xl italic font-serif text-muted-foreground tracking-widest leading-relaxed">
+              "We don't just build spaces, we create legacies that endure through time."
             </p>
           </div>
         </div>
