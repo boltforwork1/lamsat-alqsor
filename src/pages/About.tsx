@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Award, Briefcase, CheckCircle, Heart, Globe, Users } from 'lucide-react';
 
 const IMAGES = {
-  aboutHero: "https://v3b.fal.media/files/b/0a905007/3e8l9RO0-WlPLA3I-ED1d_81KwMRip.png",
-  signature: "https://v3b.fal.media/files/b/0a905009/yhGF-1sUZpFMsmZP48bwr_PWD8aQQ8.png"
+  aboutHero: "/images/about/hero.png",
+  signature: "/images/about/signature.png"
 };
 
 export default function About() {

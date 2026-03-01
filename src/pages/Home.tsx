@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { Palette, Home as HomeIcon, Layout, ChevronRight } from 'lucide-react';
 
 const IMAGES = {
-  hero: "https://v3b.fal.media/files/b/0a905007/3e8l9RO0-WlPLA3I-ED1d_81KwMRip.png",
-  interior: "https://v3b.fal.media/files/b/0a905009/yhGF-1sUZpFMsmZP48bwr_PWD8aQQ8.png",
-  gypsum: "https://v3b.fal.media/files/b/0a905009/30uGQDXzdv7LttjCok7rr_mrhRvQ3G.png",
-  exterior: "https://v3b.fal.media/files/b/0a905009/e7UCcKp0i8ur1eIXgH1WL_om2AFanT.png",
-  project1: "https://v3b.fal.media/files/b/0a905009/TJV5R-6mJFeWaEWi0bmG8_j3cDSB5A.png",
-  project2: "https://v3b.fal.media/files/b/0a905009/E1m6dOAnR1vgKIUkTobXj_5annaQdg.png"
+  hero: "/images/home/hero.png",
+  interior: "/images/home/interior.png",
+  gypsum: "/images/home/gypsum.png",
+  exterior: "/images/home/exterior.png",
+  project1: "/images/home/project1.png",
+  project2: "/images/home/project2.png"
 };
 
 const MotionLink = motion.create(Link);

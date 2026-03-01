@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 
 const IMAGES = {
-  interior: "https://v3b.fal.media/files/b/0a905009/yhGF-1sUZpFMsmZP48bwr_PWD8aQQ8.png",
-  gypsum: "https://v3b.fal.media/files/b/0a905009/30uGQDXzdv7LttjCok7rr_mrhRvQ3G.png",
-  exterior: "https://v3b.fal.media/files/b/0a905009/e7UCcKp0i8ur1eIXgH1WL_om2AFanT.png",
-  paint: "https://v3b.fal.media/files/b/0a905009/TJV5R-6mJFeWaEWi0bmG8_j3cDSB5A.png"
+  interior: "/images/services/interior.png",
+  gypsum: "/images/services/gypsum.png",
+  exterior: "/images/services/exterior.png",
+  paint: "/images/services/paint.png"
 };
 
 export default function Services() {

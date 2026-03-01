@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const PROJECT_IMAGES = [
-  { id: 1, category: 'Interior', title: 'Royal Palace Hallway', image: "https://v3b.fal.media/files/b/0a905007/3e8l9RO0-WlPLA3I-ED1d_81KwMRip.png" },
-  { id: 2, category: 'Gypsum', title: 'Grand Dome Gypsum', image: "https://v3b.fal.media/files/b/0a905009/30uGQDXzdv7LttjCok7rr_mrhRvQ3G.png" },
-  { id: 3, category: 'Exterior', title: 'Neoclassical Facade', image: "https://v3b.fal.media/files/b/0a905009/e7UCcKp0i8ur1eIXgH1WL_om2AFanT.png" },
-  { id: 4, category: 'Interior', title: 'Classic Bedroom', image: "https://v3b.fal.media/files/b/0a905009/yhGF-1sUZpFMsmZP48bwr_PWD8aQQ8.png" },
-  { id: 5, category: 'Interior', title: 'Victorian Living Room', image: "https://v3b.fal.media/files/b/0a905009/TJV5R-6mJFeWaEWi0bmG8_j3cDSB5A.png" },
-  { id: 6, category: 'Exterior', title: 'Grand Villa Entrance', image: "https://v3b.fal.media/files/b/0a905009/E1m6dOAnR1vgKIUkTobXj_5annaQdg.png" },
+  { id: 1, category: 'Interior', title: 'Royal Palace Hallway', image: "/images/projects/project-1.png" },
+  { id: 2, category: 'Gypsum', title: 'Grand Dome Gypsum', image: "/images/projects/project-2.png" },
+  { id: 3, category: 'Exterior', title: 'Neoclassical Facade', image: "/images/projects/project-3.png" },
+  { id: 4, category: 'Interior', title: 'Classic Bedroom', image: "/images/projects/project-4.png" },
+  { id: 5, category: 'Interior', title: 'Victorian Living Room', image: "/images/projects/project-5.png" },
+  { id: 6, category: 'Exterior', title: 'Grand Villa Entrance', image: "/images/projects/project-6.png" },
 ];
 
 export default function Projects() {
