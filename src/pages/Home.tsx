@@ -1,9 +1,9 @@
 import { Link } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { Palette, Home as HomeIcon, Layout, ChevronRight } from 'lucide-react';
+import HeroSlider from '../components/home/HeroSlider';
 
 const IMAGES = {
-  hero: "/images/home/hero.png",
   interior: "/images/home/interior.png",
   exterior: "/images/home/exterior.png",
   project1: "/images/home/project1.png",
@@ -30,50 +30,7 @@ export default function Home() {
 
   return (
     <div className="bg-black">
-      {/* Hero Section */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        <motion.div 
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 10, ease: "easeOut" }}
-          className="absolute inset-0 z-0"
-        >
-          <img 
-            src={IMAGES.hero} 
-            alt="Luxury Palace Interior" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 luxury-overlay" />
-        </motion.div>
-
-        <div className="container relative z-10 mx-auto px-6 text-center space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="space-y-4"
-          >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif gold-text tracking-[0.3em] font-bold">
-              Luxury That Speaks <br className="hidden md:block" /> In Details
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif">
-              We don’t create décor, we create feelings lived every day.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="flex justify-center"
-          >
-            <Link to="/projects" className="btn-gold group flex items-center space-x-2">
-              <span>View Our Projects</span>
-              <ChevronRight className="group-hover:translate-x-1 transition-transform" size={16} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* About Section */}
       <section className="section-padding bg-zinc-950 border-y border-white/5">

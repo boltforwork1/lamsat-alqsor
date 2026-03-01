@@ -1,0 +1,191 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from '@tanstack/react-router';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+interface SlideContent {
+  id: number;
+  backgroundImage: string;
+  headline: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
+const slides: SlideContent[] = [
+  {
+    id: 1,
+    backgroundImage: "/images/home/hero.png",
+    headline: "Luxury That Speaks In Details",
+    description: "We don't create décor, we create feelings lived every day.",
+    buttonText: "About Us",
+    buttonLink: "/about"
+  },
+  {
+    id: 2,
+    backgroundImage: "/images/services/interior.png",
+    headline: "Interior & Exterior Excellence",
+    description: "Palace-inspired execution with meticulous craftsmanship in every detail.",
+    buttonText: "Our Services",
+    buttonLink: "/services"
+  },
+  {
+    id: 3,
+    backgroundImage: "/images/about/signature.png",
+    headline: "Craftsmanship & Connection",
+    description: "Transforming grand visions into breathtaking realities through dedication to excellence.",
+    buttonText: "Contact Us",
+    buttonLink: "/contact"
+  }
+];
+
+const MotionLink = motion.create(Link);
+
+export default function HeroSlider() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoplay, setIsAutoplay] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoplay) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoplay]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setIsAutoplay(false);
+    setTimeout(() => setIsAutoplay(true), 8000);
+  };
+
+  const previousSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setIsAutoplay(false);
+    setTimeout(() => setIsAutoplay(true), 8000);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setIsAutoplay(false);
+    setTimeout(() => setIsAutoplay(true), 8000);
+  };
+
+  return (
+    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+      <AnimatePresence mode="wait">
+        {slides.map((slide, index) => (
+          currentSlide === index && (
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="absolute inset-0 z-0"
+            >
+              <motion.div
+                initial={{ scale: 1.1 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 10, ease: "easeOut" }}
+                className="absolute inset-0"
+              >
+                <img
+                  src={slide.backgroundImage}
+                  alt={slide.headline}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 luxury-overlay" />
+              </motion.div>
+            </motion.div>
+          )
+        ))}
+      </AnimatePresence>
+
+      <div className="container relative z-10 mx-auto px-6 text-center space-y-8">
+        <AnimatePresence mode="wait">
+          {slides.map((slide, index) => (
+            currentSlide === index && (
+              <motion.div
+                key={`text-${slide.id}`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="space-y-4"
+              >
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif gold-text tracking-[0.3em] font-bold">
+                  {slide.headline.split('\n').map((line, idx) => (
+                    <div key={idx}>{line}</div>
+                  ))}
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif">
+                  {slide.description}
+                </p>
+              </motion.div>
+            )
+          ))}
+        </AnimatePresence>
+
+        <AnimatePresence mode="wait">
+          {slides.map((slide, index) => (
+            currentSlide === index && (
+              <motion.div
+                key={`button-${slide.id}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex justify-center"
+              >
+                <MotionLink
+                  to={slide.buttonLink}
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="btn-gold group flex items-center space-x-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>{slide.buttonText}</span>
+                  <ChevronRight className="group-hover:translate-x-1 transition-transform" size={16} />
+                </MotionLink>
+              </motion.div>
+            )
+          ))}
+        </AnimatePresence>
+      </div>
+
+      <button
+        onClick={previousSlide}
+        className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 z-20 text-white hover:text-primary transition-colors duration-300 p-2"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft size={32} strokeWidth={1.5} />
+      </button>
+
+      <button
+        onClick={nextSlide}
+        className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-20 text-white hover:text-primary transition-colors duration-300 p-2"
+        aria-label="Next slide"
+      >
+        <ChevronRight size={32} strokeWidth={1.5} />
+      </button>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center space-x-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`transition-all duration-500 ${
+              currentSlide === index
+                ? 'bg-primary h-2 w-8'
+                : 'bg-white/30 h-1.5 w-1.5 hover:bg-white/50'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
