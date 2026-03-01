@@ -26,11 +26,13 @@ export default function Navbar() {
     <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'glass-morphism py-4' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
         <Link to="/" className="flex items-center group">
-          <img
-            src="/logo.png"
-            alt="Lamsat Al Qosoor Logo"
-            className="h-20 md:h-35 w-auto group-hover:scale-105 transition-transform duration-500"
-          />
+          <div className="h-12 md:h-14 w-auto overflow-hidden flex items-center">
+            <img
+              src="/logo.png"
+              alt="Lamsat Al Qosoor Logo"
+              className="h-24 md:h-32 w-auto object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
         </Link>
 
         {/* Desktop Menu */}
