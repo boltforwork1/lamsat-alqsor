@@ -104,56 +104,58 @@ export default function HeroSlider() {
         ))}
       </AnimatePresence>
 
-      <div className="container relative z-10 mx-auto px-6 text-center space-y-8">
-        <AnimatePresence mode="wait">
-          {slides.map((slide, index) => (
-            currentSlide === index && (
-              <motion.div
-                key={`text-${slide.id}`}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-4"
-              >
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif gold-text tracking-[0.3em] font-bold">
-                  {slide.headline.split('\n').map((line, idx) => (
-                    <div key={idx}>{line}</div>
-                  ))}
-                </h1>
-                <p className="text-lg md:text-xl text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif">
-                  {slide.description}
-                </p>
-              </motion.div>
-            )
-          ))}
-        </AnimatePresence>
-
-        <AnimatePresence mode="wait">
-          {slides.map((slide, index) => (
-            currentSlide === index && (
-              <motion.div
-                key={`button-${slide.id}`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex justify-center"
-              >
-                <MotionLink
-                  to={slide.buttonLink}
-                  onClick={() => window.scrollTo(0, 0)}
-                  className="btn-gold group flex items-center space-x-2"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+        <div className="container relative mx-auto px-6 text-center space-y-6">
+          <AnimatePresence mode="wait">
+            {slides.map((slide, index) => (
+              currentSlide === index && (
+                <motion.div
+                  key={`text-${slide.id}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="space-y-4"
                 >
-                  <span>{slide.buttonText}</span>
-                  <ChevronRight className="group-hover:translate-x-1 transition-transform" size={16} />
-                </MotionLink>
-              </motion.div>
-            )
-          ))}
-        </AnimatePresence>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif gold-text tracking-[0.3em] font-bold leading-tight">
+                    {slide.headline.split('\n').map((line, idx) => (
+                      <div key={idx}>{line}</div>
+                    ))}
+                  </h1>
+                  <p className="text-base md:text-lg text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif leading-relaxed">
+                    {slide.description}
+                  </p>
+                </motion.div>
+              )
+            ))}
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            {slides.map((slide, index) => (
+              currentSlide === index && (
+                <motion.div
+                  key={`button-${slide.id}`}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="flex justify-center"
+                >
+                  <MotionLink
+                    to={slide.buttonLink}
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="btn-gold group flex items-center space-x-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span>{slide.buttonText}</span>
+                    <ChevronRight className="group-hover:translate-x-1 transition-transform" size={16} />
+                  </MotionLink>
+                </motion.div>
+              )
+            ))}
+          </AnimatePresence>
+        </div>
       </div>
 
       <button

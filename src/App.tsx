@@ -9,6 +9,8 @@ import {
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';
+import WhatsAppPopup from './components/WhatsAppPopup';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
@@ -30,6 +32,8 @@ function RootLayoutComponent() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppFloat />
+      <WhatsAppPopup />
       <Toaster
         position="bottom-center"
         toastOptions={{

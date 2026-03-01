@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import { useNavigate } from '@tanstack/react-router';
 
 const IMAGES = {
   interior: "/images/services/interior.png",
@@ -8,6 +9,12 @@ const IMAGES = {
 };
 
 export default function Services() {
+  const navigate = useNavigate();
+
+  const handleInquire = () => {
+    navigate({ to: '/contact' });
+  };
+
   const serviceDetails = [
     {
       title: "Interior Works",
@@ -75,7 +82,7 @@ export default function Services() {
                 ))}
               </ul>
               
-              <button className="btn-gold group flex items-center space-x-2 mt-10">
+              <button onClick={handleInquire} className="btn-gold group flex items-center space-x-2 mt-10">
                 <span>Inquire About {service.title}</span>
                 <ChevronRight className="group-hover:translate-x-1 transition-transform" size={16} />
               </button>
