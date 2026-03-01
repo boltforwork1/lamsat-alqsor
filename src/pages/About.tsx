@@ -64,11 +64,11 @@ export default function About() {
             viewport={{ once: true }}
             className="relative h-[600px]"
           >
-            <div className="absolute inset-0 border border-primary/20 -translate-x-4 -translate-y-4 z-0" />
-            <img 
-              src={IMAGES.signature} 
-              alt="About Us" 
-              className="w-full h-full object-cover relative z-10 grayscale hover:grayscale-0 transition-all duration-1000" 
+            <div className="absolute inset-0 border border-primary/20 z-0" />
+            <img
+              src={IMAGES.signature}
+              alt="About Us"
+              className="w-full h-full object-cover relative z-10 transition-all duration-1000"
             />
           </motion.div>
         </div>
