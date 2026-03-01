@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   const contactInfo = [
-    { icon: <Phone size={24} />, label: 'Phone', value: '+971 50 123 4567' },
+    { icon: <Phone size={24} />, label: 'Phone', value: '+971 52 750 9052' },
     { icon: <Mail size={24} />, label: 'Email', value: 'info@lamsatalqosoor.com' },
     { icon: <MapPin size={24} />, label: 'Location', value: 'Luxury Business District, Dubai, UAE' }
   ];
