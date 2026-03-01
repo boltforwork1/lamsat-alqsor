@@ -72,7 +72,7 @@ export default function Footer() {
           <ul className="space-y-6">
             <li className="flex items-start space-x-4">
               <Phone className="text-primary shrink-0" size={18} strokeWidth={1.5} />
-              <span className="text-sm text-muted-foreground tracking-wider">+971 50 123 4567</span>
+              <span className="text-sm text-muted-foreground tracking-wider">+971 52 750 9052</span>
             </li>
             <li className="flex items-start space-x-4">
               <Mail className="text-primary shrink-0" size={18} strokeWidth={1.5} />
