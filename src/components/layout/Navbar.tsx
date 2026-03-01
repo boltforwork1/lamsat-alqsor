@@ -25,9 +25,12 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'glass-morphism py-4' : 'bg-transparent py-8'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link to="/" className="flex flex-col items-center group">
-          <span className="font-serif text-xl md:text-2xl gold-text tracking-[0.3em] font-bold group-hover:scale-105 transition-transform duration-500">LAMSAT AL QOSOOR</span>
-          <span className="text-[10px] md:text-xs tracking-[0.4em] text-muted-foreground uppercase">لمسة القصور</span>
+        <Link to="/" className="flex items-center group">
+          <img
+            src="/logo.png"
+            alt="Lamsat Al Qosoor Logo"
+            className="h-10 md:h-12 w-auto group-hover:scale-105 transition-transform duration-500"
+          />
         </Link>
 
         {/* Desktop Menu */}
