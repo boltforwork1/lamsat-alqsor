@@ -35,7 +35,7 @@ export default function About() {
         >
           <a
             href="/profile.pdf"
-            download="Lamsat_Al_Qosoor_Profile.pdf"
+            download="profile.pdf"
             className="btn-gold inline-block"
           >
             Download Our Profile
