@@ -7,8 +7,7 @@ const PROJECT_IMAGES = [
   { id: 3, category: 'Exterior', title: 'Luxury Wall Project', image: "/images/projects/project-3.png" },
   { id: 4, category: 'Exterior', title: 'Classic Bedroom', image: "/images/projects/project-4.png" },
   { id: 5, category: 'Interior', title: 'Victorian Living Room', image: "/images/projects/project-5.png" },
-  { id: 6, category: 'Interior', title: 'Grand Villa Entrance', image: "/images/projects/project-6.png" },
-  { id: 7, category: 'Exterior', title: 'Grand Villa Entrance', image: "/images/projects/project-6.png" },
+  { id: 6, category: 'Exterior', title: 'Grand Villa Entrance', image: "/images/projects/project-6.png" },
 ];
 
 export default function Projects() {
