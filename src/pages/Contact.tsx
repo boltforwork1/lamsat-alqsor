@@ -1,37 +1,40 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
-import { toast } from 'react-hot-toast';
+import { generateWhatsAppInquiryLink, getPhoneLink, getEmailLink, getLocationLink } from '../utils/whatsapp';
+import { CONTACT_INFO } from '../constants/contact';
 
 export default function Contact() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast.success('Your inquiry has been sent successfully. We will contact you soon.', {
-        style: {
-          background: '#000',
-          color: '#C9A24D',
-          border: '1px solid #C9A24D',
-          borderRadius: '0',
-          fontFamily: 'Cinzel, serif',
-          textTransform: 'uppercase',
-          fontSize: '12px',
-          letterSpacing: '0.1em'
-        }
-      });
-      (e.target as HTMLFormElement).reset();
-    }, 2000);
+    const whatsappLink = generateWhatsAppInquiryLink(
+      formData.name,
+      formData.phone,
+      formData.email,
+      formData.message
+    );
+    window.open(whatsappLink, '_blank');
   };
 
   const contactInfo = [
-    { icon: <Phone size={24} />, label: 'Phone', value: '+971 52 750 9052' },
-    { icon: <Mail size={24} />, label: 'Email', value: 'info@lamsatalqosoor.com' },
-    { icon: <MapPin size={24} />, label: 'Location', value: 'Luxury Business District, Dubai, UAE' }
+    { icon: <Phone size={24} />, label: 'Phone', value: CONTACT_INFO.phone.display, href: getPhoneLink(), type: 'phone' },
+    { icon: <Mail size={24} />, label: 'Email', value: CONTACT_INFO.email, href: getEmailLink(), type: 'email' },
+    { icon: <MapPin size={24} />, label: 'Location', value: CONTACT_INFO.location.display, href: getLocationLink(), type: 'location' }
   ];
 
   return (
@@ -68,15 +71,21 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 gap-10">
               {contactInfo.map((info, idx) => (
-                <div key={idx} className="flex items-start space-x-6 group">
-                  <div className="p-4 border border-primary/20 group-hover:border-primary transition-colors duration-500">
+                <a
+                  key={idx}
+                  href={info.href}
+                  target={info.type === 'email' ? undefined : '_blank'}
+                  rel={info.type === 'email' ? undefined : 'noopener noreferrer'}
+                  className="flex items-start space-x-6 group cursor-pointer hover:opacity-80 transition-opacity duration-300"
+                >
+                  <div className="p-4 border border-primary/20 group-hover:border-primary group-hover:scale-110 transition-all duration-500">
                     <span className="text-primary">{info.icon}</span>
                   </div>
                   <div className="space-y-1">
                     <p className="text-xs text-primary uppercase tracking-[0.3em] font-serif">{info.label}</p>
-                    <p className="text-lg text-white/80 tracking-widest">{info.value}</p>
+                    <p className="text-lg text-white/80 group-hover:text-primary tracking-widest transition-colors duration-300">{info.value}</p>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </motion.div>
@@ -96,53 +105,64 @@ export default function Contact() {
               <div className="space-y-8">
                 <div className="space-y-2 group">
                   <label className="text-[10px] text-primary uppercase tracking-[0.3em] font-serif">Your Name</label>
-                  <input 
+                  <input
                     required
-                    type="text" 
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder="Enter full name"
-                    className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-500 tracking-widest" 
+                    className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-500 tracking-widest"
                   />
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div className="space-y-2 group">
                     <label className="text-[10px] text-primary uppercase tracking-[0.3em] font-serif">Email Address</label>
-                    <input 
+                    <input
                       required
-                      type="email" 
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       placeholder="Enter email"
-                      className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-500 tracking-widest" 
+                      className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-500 tracking-widest"
                     />
                   </div>
                   <div className="space-y-2 group">
                     <label className="text-[10px] text-primary uppercase tracking-[0.3em] font-serif">Phone Number</label>
-                    <input 
+                    <input
                       required
-                      type="tel" 
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       placeholder="Enter phone"
-                      className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-500 tracking-widest" 
+                      className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-500 tracking-widest"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2 group">
                   <label className="text-[10px] text-primary uppercase tracking-[0.3em] font-serif">Your Message</label>
-                  <textarea 
+                  <textarea
                     required
                     rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Tell us about your project"
-                    className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-500 tracking-widest resize-none" 
+                    className="w-full bg-transparent border-b border-white/10 py-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-500 tracking-widest resize-none"
                   />
                 </div>
               </div>
 
-              <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="btn-gold w-full flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed group"
+              <button
+                type="submit"
+                className="btn-gold w-full flex items-center justify-center space-x-3 group"
               >
-                <span>{isSubmitting ? 'Sending inquiry...' : 'Submit Inquiry'}</span>
-                {!isSubmitting && <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />}
+                <span>Submit Inquiry</span>
+                <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
             </form>
           </motion.div>

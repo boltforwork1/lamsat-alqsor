@@ -1,5 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { getPhoneLink, getEmailLink, getLocationLink } from '../../utils/whatsapp';
+import { CONTACT_INFO } from '../../constants/contact';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -70,17 +72,36 @@ export default function Footer() {
         <div>
           <h4 className="font-serif text-sm tracking-widest uppercase mb-8 gold-text">Contact Us</h4>
           <ul className="space-y-6">
-            <li className="flex items-start space-x-4">
-              <Phone className="text-primary shrink-0" size={18} strokeWidth={1.5} />
-              <span className="text-sm text-muted-foreground tracking-wider">+971 52 750 9052</span>
+            <li>
+              <a
+                href={getPhoneLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start space-x-4 group cursor-pointer hover:opacity-80 transition-opacity duration-300"
+              >
+                <Phone className="text-primary shrink-0 group-hover:scale-110 transition-transform duration-300" size={18} strokeWidth={1.5} />
+                <span className="text-sm text-muted-foreground tracking-wider group-hover:text-primary transition-colors duration-300">{CONTACT_INFO.phone.display}</span>
+              </a>
             </li>
-            <li className="flex items-start space-x-4">
-              <Mail className="text-primary shrink-0" size={18} strokeWidth={1.5} />
-              <span className="text-sm text-muted-foreground tracking-wider underline underline-offset-4 decoration-primary/30">info@lamsat-alqsoor.com</span>
+            <li>
+              <a
+                href={getEmailLink()}
+                className="flex items-start space-x-4 group cursor-pointer hover:opacity-80 transition-opacity duration-300"
+              >
+                <Mail className="text-primary shrink-0 group-hover:scale-110 transition-transform duration-300" size={18} strokeWidth={1.5} />
+                <span className="text-sm text-muted-foreground tracking-wider underline underline-offset-4 decoration-primary/30 group-hover:text-primary transition-colors duration-300">{CONTACT_INFO.email}</span>
+              </a>
             </li>
-            <li className="flex items-start space-x-4">
-              <MapPin className="text-primary shrink-0" size={18} strokeWidth={1.5} />
-              <span className="text-sm text-muted-foreground tracking-wider">Luxury Business District, Dubai, UAE</span>
+            <li>
+              <a
+                href={getLocationLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start space-x-4 group cursor-pointer hover:opacity-80 transition-opacity duration-300"
+              >
+                <MapPin className="text-primary shrink-0 group-hover:scale-110 transition-transform duration-300" size={18} strokeWidth={1.5} />
+                <span className="text-sm text-muted-foreground tracking-wider group-hover:text-primary transition-colors duration-300">{CONTACT_INFO.location.display}</span>
+              </a>
             </li>
           </ul>
         </div>
