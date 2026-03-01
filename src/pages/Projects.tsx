@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const PROJECT_IMAGES = [
-  { id: 1, category: 'Interior', title: 'Royal Palace Hallway', image: "/images/projects/project-1.png" },
+  { id: 1, category: 'Interior', title: 'Royal Dining Project', image: "/images/projects/project-1.png" },
   { id: 2, category: 'Interior', title: 'Grand Dome Gypsum', image: "/images/projects/project-2.png" },
   { id: 3, category: 'Exterior', title: 'Neoclassical Facade', image: "/images/projects/project-3.png" },
   { id: 4, category: 'Interior', title: 'Classic Bedroom', image: "/images/projects/project-4.png" },
