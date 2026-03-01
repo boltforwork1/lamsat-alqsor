@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const PROJECT_IMAGES = [
   { id: 1, category: 'Interior', title: 'Royal Palace Hallway', image: "/images/projects/project-1.png" },
-  { id: 2, category: 'Gypsum', title: 'Grand Dome Gypsum', image: "/images/projects/project-2.png" },
+  { id: 2, category: 'Interior', title: 'Grand Dome Gypsum', image: "/images/projects/project-2.png" },
   { id: 3, category: 'Exterior', title: 'Neoclassical Facade', image: "/images/projects/project-3.png" },
   { id: 4, category: 'Interior', title: 'Classic Bedroom', image: "/images/projects/project-4.png" },
   { id: 5, category: 'Interior', title: 'Victorian Living Room', image: "/images/projects/project-5.png" },
@@ -12,7 +12,7 @@ const PROJECT_IMAGES = [
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
-  const categories = ['All', 'Interior', 'Exterior', 'Gypsum'];
+  const categories = ['All', 'Interior', 'Exterior'];
 
   const filteredProjects = filter === 'All' 
     ? PROJECT_IMAGES 
@@ -69,17 +69,16 @@ export default function Projects() {
                 transition={{ duration: 0.5 }}
                 className="group relative h-[450px] overflow-hidden bg-zinc-900 border border-white/5"
               >
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0" 
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col items-center justify-center p-8 border border-primary/0 group-hover:border-primary/20 m-4">
                   <div className="text-center space-y-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     <span className="text-primary text-[10px] tracking-[0.4em] uppercase font-serif">{project.category}</span>
                     <h3 className="text-xl gold-text uppercase tracking-widest font-bold">{project.title}</h3>
                     <div className="h-px w-12 bg-primary mx-auto" />
-                    <button className="text-[10px] tracking-[0.3em] uppercase text-white hover:text-primary transition-colors duration-300 pt-4">View Detail</button>
                   </div>
                 </div>
               </motion.div>

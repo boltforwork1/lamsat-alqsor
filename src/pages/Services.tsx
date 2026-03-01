@@ -3,7 +3,6 @@ import { ChevronRight } from 'lucide-react';
 
 const IMAGES = {
   interior: "/images/services/interior.png",
-  gypsum: "/images/services/gypsum.png",
   exterior: "/images/services/exterior.png",
   paint: "/images/services/paint.png"
 };
@@ -12,17 +11,18 @@ export default function Services() {
   const serviceDetails = [
     {
       title: "Interior Works",
-      subtitle: "Classic, Neo-classic, Victorian gypsum",
+      subtitle: "Classic, Neo-classic, Victorian & Gypsum Masterpieces",
       description: [
-        "Ceiling domes and ornate cornices",
-        "Classic and Victorian wall panels",
-        "Artistic wall designs & antique paint finishes",
-        "Custom luxury furniture coordination"
+        "Hand-carved gypsum ceiling domes and ornate cornices",
+        "Intricate gypsum ceiling patterns and wall moldings",
+        "Classic and Victorian wall panels with artistic designs",
+        "Antique paint finishes and luxury furniture coordination",
+        "Historical restoration of decorative interior details"
       ],
       image: IMAGES.interior
     },
     {
-      title: "Exterior & Facade",
+      title: "Exterior & Facade Works",
       subtitle: "Luxury facades and GRC fences",
       description: [
         "Classical facade architectural elements",
@@ -31,17 +31,6 @@ export default function Services() {
         "Grand palace entrance designs"
       ],
       image: IMAGES.exterior
-    },
-    {
-      title: "Luxury Gypsum",
-      subtitle: "Decorative Details & Craftsmanship",
-      description: [
-        "Hand-carved gypsum masterpieces",
-        "Intricate ceiling patterns with gold leaf",
-        "Custom wall moldings and friezes",
-        "Historical restoration of luxury details"
-      ],
-      image: IMAGES.gypsum
     }
   ];
 
@@ -98,10 +87,10 @@ export default function Services() {
                 className="relative overflow-hidden group"
               >
                 <div className="absolute inset-0 border border-primary/20 z-10 pointer-events-none group-hover:border-primary/50 transition-colors duration-500" />
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full aspect-square md:aspect-[4/3] object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0"
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full aspect-square md:aspect-[4/3] object-cover hover:scale-105 transition-transform duration-1000"
                 />
               </motion.div>
             </div>
@@ -113,8 +102,8 @@ export default function Services() {
       <section className="bg-zinc-950 py-32 overflow-hidden border-t border-white/5">
         <div className="container mx-auto px-6 text-center space-y-12">
           <h2 className="text-4xl gold-text">Artistic Vision</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {[IMAGES.interior, IMAGES.gypsum, IMAGES.exterior, IMAGES.paint].map((img, i) => (
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+            {[IMAGES.interior, IMAGES.exterior, IMAGES.paint].map((img, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}

@@ -5,7 +5,6 @@ import { Palette, Home as HomeIcon, Layout, ChevronRight } from 'lucide-react';
 const IMAGES = {
   hero: "/images/home/hero.png",
   interior: "/images/home/interior.png",
-  gypsum: "/images/home/gypsum.png",
   exterior: "/images/home/exterior.png",
   project1: "/images/home/project1.png",
   project2: "/images/home/project2.png"
@@ -17,21 +16,15 @@ export default function Home() {
   const services = [
     {
       title: "Interior Works",
-      description: "Classic, Neo-classic, and Victorian designs that redefine elegance.",
+      description: "Classic, Neo-classic, Victorian designs and gypsum masterpieces that redefine elegance.",
       icon: <HomeIcon className="text-primary" size={32} strokeWidth={1} />,
       image: IMAGES.interior
     },
     {
-      title: "Exterior & Facade",
+      title: "Exterior & Facade Works",
       description: "Grand entrances and luxury facades that command respect.",
       icon: <Layout className="text-primary" size={32} strokeWidth={1} />,
       image: IMAGES.exterior
-    },
-    {
-      title: "Luxury Gypsum",
-      description: "Handcrafted decorative details, domes, and cornices.",
-      icon: <Palette className="text-primary" size={32} strokeWidth={1} />,
-      image: IMAGES.gypsum
     }
   ];
 
@@ -112,10 +105,10 @@ export default function Home() {
             className="relative"
           >
             <div className="absolute -inset-4 border border-primary/20" />
-            <img 
-              src={IMAGES.project1} 
-              alt="Luxury Project" 
-              className="w-full h-[600px] object-cover hover-lift grayscale hover:grayscale-0 transition-all duration-700"
+            <img
+              src={IMAGES.project1}
+              alt="Luxury Project"
+              className="w-full h-[600px] object-cover hover-lift transition-all duration-700"
             />
           </motion.div>
         </div>
@@ -130,7 +123,7 @@ export default function Home() {
             <p className="text-muted-foreground tracking-widest text-sm uppercase">Palace-inspired execution in every detail</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, idx) => (
               <motion.div
                 key={service.title}
@@ -170,7 +163,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {[IMAGES.project1, IMAGES.project2, IMAGES.interior, IMAGES.exterior].map((img, idx) => (
+            {[IMAGES.project1, IMAGES.project2].map((img, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.95 }}
