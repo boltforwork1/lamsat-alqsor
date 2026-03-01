@@ -52,6 +52,7 @@ export default function Services() {
         {serviceDetails.map((service, idx) => (
           <motion.div
             key={service.title}
+            id={service.title === "Interior Works" ? "interior-works" : "exterior-facade-works"}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}

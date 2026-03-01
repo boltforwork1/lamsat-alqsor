@@ -9,11 +9,11 @@ export default function Footer() {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         <div className="space-y-6">
           <Link to="/" className="flex items-start group">
-            <div className="h-10 md:h-12 w-auto overflow-hidden flex items-center">
+            <div className="h-12 md:h-14 w-auto overflow-hidden flex items-center">
               <img
                 src="/logo.png"
                 alt="Lamsat Al Qosoor Logo"
-                className="h-20 md:h-24 w-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                className="h-24 md:h-28 w-auto object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
           <ul className="space-y-4">
             <li>
               <Link
-                to="/services"
+                to="/services#interior-works"
                 className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wider"
               >
                 Interior Works
@@ -62,7 +62,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                to="/services"
+                to="/services#exterior-facade-works"
                 className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wider"
               >
                 Exterior & Facade Works
