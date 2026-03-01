@@ -27,6 +27,20 @@ export default function About() {
           <h1 className="text-5xl md:text-7xl gold-text">About Us</h1>
           <div className="h-px w-32 bg-primary mx-auto mt-8" />
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <a
+            href="/profile.pdf"
+            download="Lamsat_Al_Qosoor_Profile.pdf"
+            className="btn-gold inline-block"
+          >
+            Download Our Profile
+          </a>
+        </motion.div>
       </header>
 
       {/* Main About Section */}
