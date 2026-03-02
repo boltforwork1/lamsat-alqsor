@@ -6,6 +6,6 @@ export const CONTACT_INFO = {
   email: 'info@lamsatalqosoor.com',
   location: {
     display: 'Luxury Business District, Dubai, UAE',
-    mapsUrl: 'https://maps.google.com/?q=Dubai+UAE'
+    mapsUrl: 'https://www.google.com/maps/place/Abu+Dhabi+-+United+Arab+Emirates'
   }
 };
