@@ -5,7 +5,7 @@ export const CONTACT_INFO = {
   },
   email: 'info@lamsatalqosoor.com',
   location: {
-    display: 'Luxury Business District, Dubai, UAE',
+    display: 'Musaffah, Abu Dubai, UAE',
     mapsUrl: 'https://www.google.com/maps/place/Abu+Dhabi+-+United+Arab+Emirates'
   }
 };
