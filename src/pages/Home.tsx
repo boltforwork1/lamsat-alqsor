@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router';
 import { motion } from 'framer-motion';
 import { Palette, Home as HomeIcon, Layout, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import HeroSlider from '../components/home/HeroSlider';
 
 const IMAGES = {
@@ -13,16 +14,18 @@ const IMAGES = {
 const MotionLink = motion.create(Link);
 
 export default function Home() {
+  const { t } = useTranslation();
+
   const services = [
     {
-      title: "Interior Works",
-      description: "Classic, Neo-classic, Victorian designs and gypsum masterpieces that redefine elegance.",
+      title: t('home.services.interiorWorks.title'),
+      description: t('home.services.interiorWorks.description'),
       icon: <HomeIcon className="text-primary" size={32} strokeWidth={1} />,
       image: IMAGES.interior
     },
     {
-      title: "Exterior & Facade Works",
-      description: "Grand entrances and luxury facades that command respect.",
+      title: t('home.services.exteriorWorks.title'),
+      description: t('home.services.exteriorWorks.description'),
       icon: <Layout className="text-primary" size={32} strokeWidth={1} />,
       image: IMAGES.exterior
     }
@@ -43,14 +46,14 @@ export default function Home() {
             className="space-y-6 md:space-y-8"
           >
             <div className="space-y-2">
-              <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">Who We Are</span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">A Passion For Perfection</h2>
+              <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">{t('home.about.label')}</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">{t('home.about.title')}</h2>
             </div>
             <p className="text-muted-foreground leading-relaxed text-sm md:text-base lg:text-lg tracking-wider">
-              In every project we deliver, we place a part of our passion into it. Specialized in luxury interior and exterior decoration, we are a leading name in palace-inspired design across the region.
+              {t('home.about.description')}
             </p>
             <Link to="/about" className="btn-gold-outline inline-block">
-              Read More
+              {t('home.about.readMore')}
             </Link>
           </motion.div>
 
@@ -75,9 +78,9 @@ export default function Home() {
       <section className="section-padding bg-black">
         <div className="container mx-auto text-center space-y-12 md:space-y-20">
           <div className="space-y-4 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">Our Specialities</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">{t('home.services.title')}</h2>
             <div className="h-px w-24 bg-primary mx-auto" />
-            <p className="text-muted-foreground tracking-widest text-xs md:text-sm uppercase">Palace-inspired execution in every detail</p>
+            <p className="text-muted-foreground tracking-widest text-xs md:text-sm uppercase">{t('home.services.subtitle')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -100,7 +103,7 @@ export default function Home() {
           </div>
           
           <Link to="/services" className="btn-gold-outline inline-block">
-            Explore All Services
+            {t('home.services.exploreAll')}
           </Link>
         </div>
       </section>
@@ -110,11 +113,11 @@ export default function Home() {
         <div className="container mx-auto space-y-12 md:space-y-20">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8">
             <div className="space-y-4">
-              <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">Portfolio</span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">Iconic Works</h2>
+              <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">{t('home.portfolio.label')}</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl gold-text">{t('home.portfolio.title')}</h2>
             </div>
             <Link to="/projects" className="text-primary hover:text-white transition-colors flex items-center space-x-2 tracking-widest text-xs uppercase font-serif pb-2">
-              <span>View Full Gallery</span>
+              <span>{t('home.portfolio.viewFullGallery')}</span>
               <ChevronRight size={16} />
             </Link>
           </div>
@@ -136,8 +139,8 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6 md:p-8">
                   <div className="border border-primary/30 w-full h-full flex flex-col items-center justify-center space-y-3 md:space-y-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-lg md:text-2xl gold-text uppercase tracking-widest">Royal Palace Project</h3>
-                    <p className="text-[10px] md:text-xs text-white/70 uppercase tracking-[0.3em]">LUXURY CLASSICAL ARCHITECTURAL WORKS</p>
+                    <h3 className="text-lg md:text-2xl gold-text uppercase tracking-widest">{t('home.portfolio.projectTitle')}</h3>
+                    <p className="text-[10px] md:text-xs text-white/70 uppercase tracking-[0.3em]">{t('home.portfolio.projectSubtitle')}</p>
                     <div className="w-12 h-px bg-primary" />
                   </div>
                 </div>
@@ -161,14 +164,14 @@ export default function Home() {
             viewport={{ once: true }}
             className="space-y-4 md:space-y-6"
           >
-            <h2 className="text-3xl md:text-5xl lg:text-7xl gold-text tracking-[0.1em]">Let's Create Your Palace</h2>
+            <h2 className="text-3xl md:text-5xl lg:text-7xl gold-text tracking-[0.1em]">{t('home.cta.title')}</h2>
             <p className="text-sm md:text-lg lg:text-xl text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif leading-relaxed">
-              Transforming grand visions into breathtaking realities.
+              {t('home.cta.subtitle')}
             </p>
           </motion.div>
-          
+
           <Link to="/contact" className="btn-gold inline-block">
-            Contact Us Today
+            {t('home.cta.contactButton')}
           </Link>
         </div>
       </section>

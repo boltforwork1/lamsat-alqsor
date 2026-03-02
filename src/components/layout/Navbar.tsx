@@ -2,8 +2,10 @@ import { Link } from '@tanstack/react-router';
 import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,11 +18,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('navigation.home'), path: '/' },
+    { name: t('navigation.services'), path: '/services' },
+    { name: t('navigation.projects'), path: '/projects' },
+    { name: t('navigation.about'), path: '/about' },
+    { name: t('navigation.contact'), path: '/contact' },
   ];
 
   const handleNavClick = () => {
@@ -55,7 +57,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link to="/contact" onClick={handleNavClick} className="btn-gold !py-2 !px-6 !text-[10px]">
-            Inquire Now
+            {t('navigation.inquireNow')}
           </Link>
         </div>
 
@@ -85,7 +87,7 @@ export default function Navbar() {
                 onClick={handleNavClick}
                 className="btn-gold !py-3 !px-8 !text-xs"
               >
-                Inquire Now
+                {t('navigation.inquireNow')}
               </Link>
             </div>
           </SheetContent>

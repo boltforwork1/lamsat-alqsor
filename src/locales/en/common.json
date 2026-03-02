@@ -1,5 +1,5 @@
 {
-  "navbar": {
+  "navigation": {
     "home": "Home",
     "services": "Services",
     "projects": "Projects",
@@ -7,10 +7,27 @@
     "contact": "Contact",
     "inquireNow": "Inquire Now"
   },
+  "hero": {
+    "slides": [
+      {
+        "headline": "Luxury That Speaks In Details",
+        "description": "We don't create décor, we create feelings lived every day.",
+        "buttonText": "About Us"
+      },
+      {
+        "headline": "Interior & Exterior Excellence",
+        "description": "Palace-inspired execution with meticulous craftsmanship in every detail.",
+        "buttonText": "Our Services"
+      },
+      {
+        "headline": "Craftsmanship & Connection",
+        "description": "Transforming grand visions into breathtaking realities through dedication to excellence.",
+        "buttonText": "Contact Us"
+      }
+    ]
+  },
   "home": {
-    "hero": {
-      "tagline": "Luxury Interior & Exterior Decoration"
-    },
+    "tagline": "Luxury Interior & Exterior Decoration",
     "about": {
       "label": "Who We Are",
       "title": "A Passion For Perfection",

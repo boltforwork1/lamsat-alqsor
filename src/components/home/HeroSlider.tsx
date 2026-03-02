@@ -2,46 +2,29 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from '@tanstack/react-router';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface SlideContent {
   id: number;
   backgroundImage: string;
-  headline: string;
-  description: string;
-  buttonText: string;
   buttonLink: string;
 }
 
-const slides: SlideContent[] = [
-  {
-    id: 1,
-    backgroundImage: "/images/home/hero.png",
-    headline: "Luxury That Speaks In Details",
-    description: "We don't create décor, we create feelings lived every day.",
-    buttonText: "About Us",
-    buttonLink: "/about"
-  },
-  {
-    id: 2,
-    backgroundImage: "/images/services/interior.png",
-    headline: "Interior & Exterior Excellence",
-    description: "Palace-inspired execution with meticulous craftsmanship in every detail.",
-    buttonText: "Our Services",
-    buttonLink: "/services"
-  },
-  {
-    id: 3,
-    backgroundImage: "/images/about/signature.png",
-    headline: "Craftsmanship & Connection",
-    description: "Transforming grand visions into breathtaking realities through dedication to excellence.",
-    buttonText: "Contact Us",
-    buttonLink: "/contact"
-  }
+const slideConfig = [
+  { backgroundImage: "/images/home/hero.png", buttonLink: "/about" },
+  { backgroundImage: "/images/services/interior.png", buttonLink: "/services" },
+  { backgroundImage: "/images/about/signature.png", buttonLink: "/contact" }
 ];
 
 const MotionLink = motion.create(Link);
 
 export default function HeroSlider() {
+  const { t } = useTranslation();
+
+  const slides: SlideContent[] = slideConfig.map((config, idx) => ({
+    id: idx + 1,
+    ...config
+  }));
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoplay, setIsAutoplay] = useState(true);
 
@@ -118,12 +101,12 @@ export default function HeroSlider() {
                   className="space-y-3 md:space-y-4"
                 >
                   <h1 className="text-2xl md:text-4xl lg:text-6xl font-serif gold-text tracking-[0.2em] md:tracking-[0.3em] font-bold leading-tight">
-                    {slide.headline.split('\n').map((line, idx) => (
+                    {t(`hero.slides.${index}.headline`).split('\n').map((line, idx) => (
                       <div key={idx}>{line}</div>
                     ))}
                   </h1>
                   <p className="text-xs md:text-base lg:text-lg text-muted-foreground tracking-widest max-w-2xl mx-auto italic font-serif leading-relaxed">
-                    {slide.description}
+                    {t(`hero.slides.${index}.description`)}
                   </p>
                 </motion.div>
               )
@@ -148,7 +131,7 @@ export default function HeroSlider() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <span>{slide.buttonText}</span>
+                    <span>{t(`hero.slides.${index}.buttonText`)}</span>
                     <ChevronRight className="group-hover:translate-x-1 transition-transform" size={16} />
                   </MotionLink>
                 </motion.div>
