@@ -1,22 +1,27 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const PROJECT_IMAGES = [
-  { id: 1, category: 'Interior', title: 'Royal Dining Project', image: "/images/projects/project-1.png" },
-  { id: 2, category: 'Interior', title: 'Royal Salon Project', image: "/images/projects/project-2.png" },
-  { id: 3, category: 'Exterior', title: 'Luxury Wall Project', image: "/images/projects/project-3.png" },
-  { id: 4, category: 'Exterior', title: 'Elegant Wall Project', image: "/images/projects/project-4.png" },
-  { id: 5, category: 'Interior', title: 'Luxury Bathroom Project', image: "/images/projects/project-5.png" },
-  { id: 6, category: 'Exterior', title: 'Art Wall Project', image: "/images/projects/project-6.png" },
-];
+import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState('All');
-  const categories = ['All', 'Interior', 'Exterior'];
 
-  const filteredProjects = filter === 'All' 
-    ? PROJECT_IMAGES 
-    : PROJECT_IMAGES.filter(p => p.category === filter);
+  const PROJECT_IMAGES = t('projects.items', { returnObjects: true }) as Array<{ title: string; category: string; image: string; id?: number }>;
+  const projects = PROJECT_IMAGES.map((item, idx) => ({
+    ...item,
+    id: idx + 1,
+    image: `/images/projects/project-${idx + 1}.png`
+  }));
+
+  const categories = [
+    t('projects.filters.all'),
+    t('projects.filters.interior'),
+    t('projects.filters.exterior')
+  ];
+
+  const filteredProjects = filter === t('projects.filters.all')
+    ? projects
+    : projects.filter(p => p.category === filter);
 
   return (
     <div className="bg-black pt-32 min-h-screen">
@@ -27,10 +32,10 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="space-y-4"
         >
-          <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">A Legacy Of Grandeur</span>
-          <h1 className="text-3xl md:text-5xl lg:text-7xl gold-text">Our Projects</h1>
+          <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">{t('projects.header.label')}</span>
+          <h1 className="text-3xl md:text-5xl lg:text-7xl gold-text">{t('projects.header.title')}</h1>
           <div className="h-px w-32 bg-primary mx-auto mt-6 md:mt-8" />
-          <p className="text-muted-foreground tracking-widest max-w-2xl mx-auto uppercase text-[9px] md:text-xs">Excellence across more than 280 luxury projects</p>
+          <p className="text-muted-foreground tracking-widest max-w-2xl mx-auto uppercase text-[9px] md:text-xs">{t('projects.header.subtitle')}</p>
         </motion.div>
       </header>
 
@@ -92,7 +97,7 @@ export default function Projects() {
         <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl space-y-12">
           <div className="inline-block p-4 border-y border-primary/30">
             <p className="text-lg md:text-2xl lg:text-3xl italic font-serif text-muted-foreground tracking-widest leading-relaxed">
-              "We don't just build spaces, we create legacies that endure through time."
+              "{t('projects.portfolio.quote')}"
             </p>
           </div>
         </div>

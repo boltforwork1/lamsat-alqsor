@@ -1,9 +1,11 @@
 import { Link } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
 import { Phone, Mail, MapPin, Instagram } from 'lucide-react';
 import { getPhoneLink, getEmailLink, getLocationLink } from '../../utils/whatsapp';
 import { CONTACT_INFO } from '../../constants/contact';
 
 export default function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const handleLinkClick = () => {
@@ -24,12 +26,12 @@ export default function Footer() {
             </div>
           </Link>
           <p className="text-muted-foreground text-xs md:text-sm leading-relaxed max-w-xs">
-            Specialized in luxury interior and exterior decoration, delivering passion and craftsmanship to every project.
+            {t('footer.description')}
           </p>
         </div>
 
         <div>
-          <h4 className="font-serif text-xs md:text-sm tracking-widest uppercase mb-6 md:mb-8 gold-text">Quick Links</h4>
+          <h4 className="font-serif text-xs md:text-sm tracking-widest uppercase mb-6 md:mb-8 gold-text">{t('footer.quickLinks')}</h4>
           <ul className="space-y-3 md:space-y-4">
             {['Home', 'Services', 'Projects', 'About', 'Contact'].map((link) => (
               <li key={link}>
@@ -46,7 +48,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-serif text-xs md:text-sm tracking-widest uppercase mb-6 md:mb-8 gold-text">Services</h4>
+          <h4 className="font-serif text-xs md:text-sm tracking-widest uppercase mb-6 md:mb-8 gold-text">{t('footer.services')}</h4>
           <ul className="space-y-3 md:space-y-4">
             <li>
               <Link
@@ -54,7 +56,7 @@ export default function Footer() {
                 onClick={handleLinkClick}
                 className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wider"
               >
-                Interior Works
+                {t('footer.interiorWorks')}
               </Link>
             </li>
             <li>
@@ -63,14 +65,14 @@ export default function Footer() {
                 onClick={handleLinkClick}
                 className="text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wider"
               >
-                Exterior & Facade Works
+                {t('footer.exteriorFacadeWorks')}
               </Link>
             </li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-serif text-xs md:text-sm tracking-widest uppercase mb-6 md:mb-8 gold-text">Contact Us</h4>
+          <h4 className="font-serif text-xs md:text-sm tracking-widest uppercase mb-6 md:mb-8 gold-text">{t('footer.contactUs')}</h4>
           <ul className="space-y-4 md:space-y-6">
             <li>
               <a
@@ -120,8 +122,8 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto mt-12 md:mt-20 pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0 text-[8px] md:text-[10px] tracking-[0.3em] uppercase text-muted-foreground/50 px-4 md:px-0">
-        <p className="text-center md:text-left">© {currentYear} LAMSAT AL QOSOOR LUXURY DECOR. ALL RIGHTS RESERVED.</p>
-        <p className="text-center md:text-right">WE CREATE BEAUTY AND LEAVE A LASTING SIGNATURE.</p>
+        <p className="text-center md:text-left">{t('footer.copyright', { year: currentYear })}</p>
+        <p className="text-center md:text-right">{t('footer.tagline')}</p>
       </div>
     </footer>
   );

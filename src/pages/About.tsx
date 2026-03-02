@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Award, Briefcase, CheckCircle, Heart, Globe, Users } from 'lucide-react';
 
 const IMAGES = {
@@ -7,12 +8,13 @@ const IMAGES = {
 };
 
 export default function About() {
-  const stats = [
-    { label: 'Projects Completed', value: '280+', icon: <CheckCircle size={20} /> },
-    { label: 'Years Experience', value: '15+', icon: <Award size={20} /> },
-    { label: 'Craftsmen', value: '50+', icon: <Users size={20} /> },
-    { label: 'Global Design Standards', value: '100%', icon: <Globe size={20} /> }
-  ];
+  const { t } = useTranslation();
+
+  const statItems = t('about.stats', { returnObjects: true }) as Array<{ label: string; value: string }>;
+  const stats = statItems.map((stat, idx) => {
+    const icons = [<CheckCircle size={20} />, <Award size={20} />, <Users size={20} />, <Globe size={20} />];
+    return { ...stat, icon: icons[idx] };
+  });
 
   return (
     <div className="bg-black pt-32 min-h-screen">
@@ -23,8 +25,8 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="space-y-4"
         >
-          <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">A Legacy Of Luxury</span>
-          <h1 className="text-3xl md:text-5xl lg:text-7xl gold-text">About Us</h1>
+          <span className="text-primary text-xs tracking-[0.4em] uppercase font-serif">{t('about.header.label')}</span>
+          <h1 className="text-3xl md:text-5xl lg:text-7xl gold-text">{t('about.header.title')}</h1>
           <div className="h-px w-32 bg-primary mx-auto mt-6 md:mt-8" />
         </motion.div>
 
@@ -38,7 +40,7 @@ export default function About() {
             download="https://drive.google.com/file/d/1D2F53z6t49v69A0roeeZnZKkG43UVqAf/view?usp=sharing"
             className="btn-gold inline-block"
           >
-            Download Our Profile
+            {t('about.header.downloadProfile')}
           </a>
         </motion.div>
       </header>
@@ -54,20 +56,19 @@ export default function About() {
             className="space-y-6 md:space-y-10"
           >
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl lg:text-4xl gold-text tracking-widest uppercase">The Essence of Lamsat Al Qosoor</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl gold-text tracking-widest uppercase">{t('about.essence.title')}</h2>
               <div className="h-px w-16 bg-primary" />
             </div>
-            <p className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed tracking-wider">
-              We are a specialized interior and exterior decoration company with experience across more than 280 projects. Our journey began with a simple vision: to bring the grandeur of palaces into modern living spaces.
-            </p>
-            <p className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed tracking-wider">
-              True luxury lies in the details. From the first sketch to the final gold-leaf application, our team of expert designers and craftsmen work in harmony to deliver spaces that are not just beautiful, but soulful.
-            </p>
+            {(t('about.essence.paragraphs', { returnObjects: true }) as string[]).map((para, idx) => (
+              <p key={idx} className="text-muted-foreground text-sm md:text-base lg:text-lg leading-relaxed tracking-wider">
+                {para}
+              </p>
+            ))}
             <div className="flex items-center space-x-4 md:space-x-6">
               <div className="p-4 border border-primary/20 rounded-full shrink-0">
                 <Heart className="text-primary" size={20} md="24" strokeWidth={1.5} />
               </div>
-              <p className="text-xs md:text-sm tracking-[0.2em] text-white uppercase font-serif italic">Created with passion, built for eternity.</p>
+              <p className="text-xs md:text-sm tracking-[0.2em] text-white uppercase font-serif italic">{t('about.essence.motto')}</p>
             </div>
           </motion.div>
 
@@ -119,11 +120,11 @@ export default function About() {
             className="p-6 md:p-12 border border-white/5 bg-zinc-900/50 space-y-6 md:space-y-8 group hover:border-primary/20 transition-all duration-500"
           >
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl gold-text uppercase tracking-widest">Our Vision</h2>
+              <h2 className="text-2xl md:text-3xl gold-text uppercase tracking-widest">{t('about.vision.title')}</h2>
               <div className="h-px w-12 bg-primary group-hover:w-24 transition-all duration-500" />
             </div>
             <p className="text-muted-foreground text-xs md:text-sm leading-relaxed tracking-widest italic font-serif">
-              "To become the leading name in luxury décor execution worldwide, setting new benchmarks for craftsmanship, elegance, and timeless design."
+              "{t('about.vision.text')}"
             </p>
           </motion.div>
 
@@ -135,11 +136,11 @@ export default function About() {
             className="p-6 md:p-12 border border-white/5 bg-zinc-900/50 space-y-6 md:space-y-8 group hover:border-primary/20 transition-all duration-500"
           >
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl gold-text uppercase tracking-widest">Our Mission</h2>
+              <h2 className="text-2xl md:text-3xl gold-text uppercase tracking-widest">{t('about.mission.title')}</h2>
               <div className="h-px w-12 bg-primary group-hover:w-24 transition-all duration-500" />
             </div>
             <p className="text-muted-foreground text-xs md:text-sm leading-relaxed tracking-widest italic font-serif">
-              "To transform architectural spaces into living masterpieces through unparalleled dedication to detail, quality, and the classical pursuit of beauty."
+              "{t('about.mission.text')}"
             </p>
           </motion.div>
         </div>
@@ -148,13 +149,9 @@ export default function About() {
       {/* Why Choose Us */}
       <section className="section-padding bg-black border-t border-white/5">
         <div className="container mx-auto px-4 md:px-6 text-center space-y-12 md:space-y-20">
-          <h2 className="text-3xl md:text-4xl gold-text tracking-widest">Why Clients Choose Us</h2>
+          <h2 className="text-3xl md:text-4xl gold-text tracking-widest">{t('about.whyChooseUs.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              { title: "Precision Craftsmanship", text: "Every detail is executed with mathematical precision and artistic flair." },
-              { title: "Luxury Standards", text: "We use only the finest materials and centuries-old techniques refined for today." },
-              { title: "Personal Passion", text: "We treat every project as if it were our own personal signature on history." }
-            ].map((item, idx) => (
+            {(t('about.whyChooseUs.items', { returnObjects: true }) as Array<{ title: string; text: string }>).map((item, idx) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}

@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react';
 import { generateWhatsAppLink } from '../utils/whatsapp';
 
 export default function WhatsAppPopup() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -41,15 +43,15 @@ export default function WhatsAppPopup() {
         >
           <div className="flex items-start justify-between gap-4">
             <div className="space-y-2 flex-1">
-              <p className="text-sm text-primary font-serif tracking-[0.2em] uppercase">Chat with us</p>
-              <p className="text-white text-sm leading-relaxed">Want to contact us? Let's start a conversation about your project.</p>
+              <p className="text-sm text-primary font-serif tracking-[0.2em] uppercase">{t('whatsapp.popup.chatWithUs')}</p>
+              <p className="text-white text-sm leading-relaxed">{t('whatsapp.popup.message')}</p>
             </div>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleClose}
               className="text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
-              aria-label="Close popup"
+              aria-label={t('whatsapp.popup.closeLabel')}
             >
               <X size={16} />
             </motion.button>
@@ -61,7 +63,7 @@ export default function WhatsAppPopup() {
             whileTap={{ scale: 0.98 }}
             className="w-full py-3 bg-gradient-to-r from-primary to-primary/80 text-black text-sm font-serif tracking-widest uppercase font-bold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 rounded"
           >
-            Start Chat
+            {t('whatsapp.popup.startChat')}
           </motion.button>
         </motion.div>
       )}
