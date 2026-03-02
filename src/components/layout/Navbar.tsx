@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useTranslation } from 'react-i18next';
+import LanguageSelector from '@/components/LanguageSelector';
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -44,7 +45,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-12">
+        <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -56,16 +57,19 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+          <LanguageSelector />
           <Link to="/contact" onClick={handleNavClick} className="btn-gold !py-2 !px-6 !text-[10px]">
             {t('navigation.inquireNow')}
           </Link>
         </div>
 
         {/* Mobile Menu */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger className="md:hidden text-white hover:text-primary transition-colors z-50 relative" aria-label="Toggle menu">
-            <Menu size={32} />
-          </SheetTrigger>
+        <div className="md:hidden flex items-center gap-4">
+          <LanguageSelector />
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger className="text-white hover:text-primary transition-colors z-50 relative" aria-label="Toggle menu">
+              <Menu size={32} />
+            </SheetTrigger>
 
           <SheetContent side="right" className="w-4/5 bg-gradient-to-b from-background via-background to-black/80 border-l border-primary/20 p-0 flex flex-col justify-center items-center">
             <div className="flex flex-col items-center justify-center space-y-8 w-full px-6">
@@ -91,7 +95,8 @@ export default function Navbar() {
               </Link>
             </div>
           </SheetContent>
-        </Sheet>
+          </Sheet>
+        </div>
       </div>
     </nav>
   );
