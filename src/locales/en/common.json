@@ -1,0 +1,231 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "inquireNow": "Inquire Now"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Luxury Interior & Exterior Decoration"
+    },
+    "about": {
+      "label": "Who We Are",
+      "title": "A Passion For Perfection",
+      "description": "In every project we deliver, we place a part of our passion into it. Specialized in luxury interior and exterior decoration, we are a leading name in palace-inspired design across the region.",
+      "readMore": "Read More"
+    },
+    "services": {
+      "title": "Our Specialities",
+      "subtitle": "Palace-inspired execution in every detail",
+      "interiorWorks": {
+        "title": "Interior Works",
+        "description": "Classic, Neo-classic, Victorian designs and gypsum masterpieces that redefine elegance."
+      },
+      "exteriorWorks": {
+        "title": "Exterior & Facade Works",
+        "description": "Grand entrances and luxury facades that command respect."
+      },
+      "exploreAll": "Explore All Services"
+    },
+    "portfolio": {
+      "label": "Portfolio",
+      "title": "Iconic Works",
+      "viewFullGallery": "View Full Gallery",
+      "projectTitle": "Royal Palace Project",
+      "projectSubtitle": "LUXURY CLASSICAL ARCHITECTURAL WORKS"
+    },
+    "cta": {
+      "title": "Let's Create Your Palace",
+      "subtitle": "Transforming grand visions into breathtaking realities.",
+      "contactButton": "Contact Us Today"
+    }
+  },
+  "services": {
+    "header": {
+      "label": "Excellence In Every Detail",
+      "title": "Our Services"
+    },
+    "interiorWorks": {
+      "title": "Interior Works",
+      "subtitle": "Classic, Neo-classic, Victorian & Gypsum Masterpieces",
+      "items": [
+        "Hand-carved gypsum ceiling domes and ornate cornices",
+        "Intricate gypsum ceiling patterns and wall moldings",
+        "Classic and Victorian wall panels with artistic designs",
+        "Antique paint finishes and luxury furniture coordination",
+        "Historical restoration of decorative interior details"
+      ],
+      "inquireButton": "Inquire About Interior Works"
+    },
+    "exteriorWorks": {
+      "title": "Exterior & Facade Works",
+      "subtitle": "Luxury facades and GRC fences",
+      "items": [
+        "Classical facade architectural elements",
+        "GRC ornate fences and gates",
+        "Ornamental exterior stone details",
+        "Grand palace entrance designs"
+      ],
+      "inquireButton": "Inquire About Exterior & Facade Works"
+    },
+    "artisticVision": {
+      "title": "Artistic Vision"
+    }
+  },
+  "projects": {
+    "header": {
+      "label": "A Legacy Of Grandeur",
+      "title": "Our Projects",
+      "subtitle": "Excellence across more than 280 luxury projects"
+    },
+    "filters": {
+      "all": "All",
+      "interior": "Interior",
+      "exterior": "Exterior"
+    },
+    "portfolio": {
+      "quote": "We don't just build spaces, we create legacies that endure through time."
+    },
+    "items": [
+      {
+        "title": "Royal Dining Project",
+        "category": "Interior"
+      },
+      {
+        "title": "Royal Salon Project",
+        "category": "Interior"
+      },
+      {
+        "title": "Luxury Wall Project",
+        "category": "Exterior"
+      },
+      {
+        "title": "Elegant Wall Project",
+        "category": "Exterior"
+      },
+      {
+        "title": "Luxury Bathroom Project",
+        "category": "Interior"
+      },
+      {
+        "title": "Art Wall Project",
+        "category": "Exterior"
+      }
+    ]
+  },
+  "about": {
+    "header": {
+      "label": "A Legacy Of Luxury",
+      "title": "About Us",
+      "downloadProfile": "Download Our Profile"
+    },
+    "essence": {
+      "title": "The Essence of Lamsat Al Qosoor",
+      "paragraphs": [
+        "We are a specialized interior and exterior decoration company with experience across more than 280 projects. Our journey began with a simple vision: to bring the grandeur of palaces into modern living spaces.",
+        "True luxury lies in the details. From the first sketch to the final gold-leaf application, our team of expert designers and craftsmen work in harmony to deliver spaces that are not just beautiful, but soulful."
+      ],
+      "motto": "Created with passion, built for eternity."
+    },
+    "stats": [
+      {
+        "label": "Projects Completed",
+        "value": "280+"
+      },
+      {
+        "label": "Years Experience",
+        "value": "15+"
+      },
+      {
+        "label": "Craftsmen",
+        "value": "50+"
+      },
+      {
+        "label": "Global Design Standards",
+        "value": "100%"
+      }
+    ],
+    "vision": {
+      "title": "Our Vision",
+      "text": "To become the leading name in luxury décor execution worldwide, setting new benchmarks for craftsmanship, elegance, and timeless design."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "text": "To transform architectural spaces into living masterpieces through unparalleled dedication to detail, quality, and the classical pursuit of beauty."
+    },
+    "whyChooseUs": {
+      "title": "Why Clients Choose Us",
+      "items": [
+        {
+          "title": "Precision Craftsmanship",
+          "text": "Every detail is executed with mathematical precision and artistic flair."
+        },
+        {
+          "title": "Luxury Standards",
+          "text": "We use only the finest materials and centuries-old techniques refined for today."
+        },
+        {
+          "title": "Personal Passion",
+          "text": "We treat every project as if it were our own personal signature on history."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "header": {
+      "label": "Let's Create Your Palace",
+      "title": "Contact Us"
+    },
+    "form": {
+      "inquireAbout": "Inquire About Your Project",
+      "description": "We are ready to transform your architectural space into a timeless masterpiece. Reach out to our expert team for a bespoke consultation.",
+      "labels": {
+        "name": "Your Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "message": "Your Message"
+      },
+      "placeholders": {
+        "name": "Enter full name",
+        "email": "Enter email",
+        "phone": "Enter phone",
+        "message": "Tell us about your project"
+      },
+      "submitButton": "Submit Inquiry"
+    },
+    "contactInfo": {
+      "phone": "Phone",
+      "email": "Email",
+      "location": "Location",
+      "instagram": "Instagram"
+    },
+    "closing": {
+      "title": "Lamsat Al Qosoor Luxury Decor",
+      "tagline": "We create beauty and leave a lasting signature."
+    }
+  },
+  "footer": {
+    "description": "Specialized in luxury interior and exterior decoration, delivering passion and craftsmanship to every project.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "interiorWorks": "Interior Works",
+    "exteriorFacadeWorks": "Exterior & Facade Works",
+    "contactUs": "Contact Us",
+    "copyright": "© {year} LAMSAT AL QOSOOR LUXURY DECOR. ALL RIGHTS RESERVED.",
+    "tagline": "WE CREATE BEAUTY AND LEAVE A LASTING SIGNATURE."
+  },
+  "whatsapp": {
+    "float": {
+      "label": "Chat with us on WhatsApp"
+    },
+    "popup": {
+      "chatWithUs": "Chat with us",
+      "message": "Want to contact us? Let's start a conversation about your project.",
+      "startChat": "Start Chat",
+      "closeLabel": "Close popup"
+    }
+  }
+}
